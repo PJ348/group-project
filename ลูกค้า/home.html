@@ -4,88 +4,135 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>สดชื่น</title>
-   <link href="./style.css" rel="stylesheet">
+  <link href="./style.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="max-w-[1200px] mx-auto min-h-screen bg-green-400">
+<body class="bg-neutral-100 min-h-screen">
   
     <!-- Bar ข้างบนที่เป็นโลโก้ + คิวก่อนหน้่า -->
-    <header class="m-6 my-8">
-  
-      <div class="flex justify-between items-center mx-6">
+    <nav class=" bg-green-400 shadow-lg">
+      <div class="flex justify-between items-center px-6 py-4">
+
         <!-- ส่วนโลโก้ ฝั่งซ้าย -->
-        <div>
-          <img src="../img/logo.png" alt="Logo" class="w-30">
-          <p class="text-white font-bold text-center">ร้านสดชื่น</p>
+        <div class="flex flex-row items-center space-x-3">
+          <img src="../img/logo.png" alt="Logo" class="w-20 rounded-full">
+          <div class="text-white">
+            <p class="text-xl font-bold">ร้านสดชื่น</p>
+            <p class="text-base font-light">หน้าม.พะเยา</p>
+          </div>
         </div>
-        <!-- ส่วนคิวก่อนหน้่า ฝั่งขวา -->
-        <div>
-          <p class="text-white font-bold">คิวก่อนหน้า:
-          <span class="inline-flex items-center justify-center bg-orange-500 text-black font-bold rounded-full w-10 h-10" role="button">5</span>
-          </p>
+
+        <!-- ส่วนคิวที่รอ ฝั่งขวา -->
+        <div class="bg-green-500 p-2 rounded-full flex items-center mr-3 ">
+          <p class="text-white text-lg font-semibold mx-2 max-[390px]:hidden">คิวที่รอ</p>
+          <span class="bg-orange-500 inline-flex items-center justify-center text-black font-bold rounded-full w-10 h-10" role="button">5</span>
         </div>
+        
       </div>
-  
-    </header>
+    </nav>
   
     <!-- เมนูอาหาร -->
-    <main>
-  
-      <div class="rounded-t-full bg-neutral-100 p-4">
-        <h1 class="text-center text-2xl font-bold m-2">เมนูอาหาร</h1>
-      </div>
-  
-      <div class="bg-neutral-100 grid grid-cols-2 gap-4 p-4">
-  
-        <!-- การ์ดเมนู -->
-        <div class="flex flex-col p-4 rounded-2xl bg-white shadow-md/20">
-          <img src="../img/food.jpg" alt="food" class="w-full h-32 object-cover rounded-2xl mb-4">
-          <h2 class="font-bold">ข้าวผัดไข่</h2>
-          <p class="text-orange-500 mb-2">50 บาท</p>
-          <a href="#">
-            <span class="bg-green-400 rounded-full text-white font-bold inline-flex items-center justify-center w-full mt-auto py-1" role="button">+เพิ่ม</span>
-          </a>
-        </div>
-  
-        <div class="flex flex-col p-4 rounded-2xl bg-white shadow-md/20">
-          <img src="../img/food.jpg" alt="food" class="w-full h-32 object-cover rounded-2xl mb-4">
-          <h2 class="font-bold">ข้าวผัดไข่</h2>
-          <p class="text-orange-500 mb-2">50 บาท</p>
-          <a href="#">
-            <span class="bg-green-400 rounded-full text-white font-bold inline-flex items-center justify-center w-full mt-auto py-1" role="button">+เพิ่ม</span>
-          </a>
-        </div>
-  
-        <div class="flex flex-col p-4 rounded-2xl bg-white shadow-md/20">
-          <img src="../img/food.jpg" alt="food" class="w-full h-32 object-cover rounded-2xl mb-4">
-          <h2 class="font-bold">ข้าวผัดไข่</h2>
-          <p class="text-orange-500 mb-2">50 บาท</p>
-          <a href="#">
-            <span class="bg-green-400 rounded-full text-white font-bold inline-flex items-center justify-center w-full mt-auto py-1" role="button">+เพิ่ม</span>
-          </a>
-        </div>
-  
-        <div class="flex flex-col p-4 rounded-2xl bg-white shadow-md/20">
-          <img src="../img/food.jpg" alt="food" class="w-full h-32 object-cover rounded-2xl mb-4">
-          <h2 class="font-bold">ข้าวผัดไข่</h2>
-          <p class="text-orange-500 mb-2">50 บาท</p>
-          <a href="#">
-            <span class="bg-green-400 rounded-full text-white font-bold inline-flex items-center justify-center w-full mt-auto py-1" role="button">+เพิ่ม</span>
-          </a>
-        </div>
-  
-        <!-- ปุ่มตระกล้าของฉัน -->
-        <div class="col-span-2 flex justify-center mt-4">
-          <a href="#">
-            <div class="bg-orange-500 rounded-full px-3 py-2 flex gap-2 items-center">
-              <span class="inline-flex justify-center items-center bg-white rounded-full w-10 h-10" role="button">0</span>
-              <span>ตระกล้าของฉัน</span>
-            </div>
-          </a> 
-        </div>
-      </div>
-    
-    </main>
+    <main class="px-1 pb-28">
 
+      <!-- หัวข้อ -->
+      <div class="px-6 pt-8">
+        <p class="text-2xl font-bold">เมนูอาหาร</p>
+        <p class="text-base font-light">เลือกเมนูที่คุณต้องการ</p>
+      </div>
+
+      <div class="grid grid-cols-2 gap-4 p-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7">
+        <!-- การ์ดเมนู -->
+        <div class="bg-white flex flex-col rounded-3xl shadow-lg hover:scale-105 transition-transform duration-300 cursor-pointer">
+          <img src="../img/food.jpg" alt="food" class="w-full h-36 object-cover rounded-t-3xl">
+          <div class="m-4 mr-6">
+            <h2 class="text-xl font-bold max-[390px]:text-lg">ข้าวผัดไข่</h2>
+            <p class="text-orange-500 text-xl font-bold max-[390px]:text-lg">50
+              <span class="text-base font-light text-black">บาท</span>
+            </p>
+          </div>
+          <div class="flex justify-end mt-auto">
+            <button class=" bg-green-500 text-white font-medium text-xl rounded-tl-3xl rounded-br-3xl w-14 h-14 hover:bg-green-700 transition max-[390px]:text-lg">เพิ่ม</button>
+          </div>
+        </div>
+        
+        <div class="bg-white flex flex-col rounded-3xl shadow-lg hover:scale-105 transition-transform duration-300 cursor-pointer">
+          <img src="../img/food.jpg" alt="food" class="w-full h-36 object-cover rounded-t-3xl">
+          <div class="m-4 mr-6">
+            <h2 class="text-xl font-bold max-[390px]:text-lg">ข้าวผัดไข่</h2>
+            <p class="text-orange-500 text-xl font-bold max-[390px]:text-lg">50
+              <span class="text-base font-light text-black">บาท</span>
+            </p>
+          </div>
+          <div class="flex justify-end mt-auto">
+            <button class=" bg-green-500 text-white font-medium text-xl rounded-tl-3xl rounded-br-3xl w-14 h-14 hover:bg-green-700 transition max-[390px]:text-lg">เพิ่ม</button>
+          </div>
+        </div>
+
+        <div class="bg-white flex flex-col rounded-3xl shadow-lg hover:scale-105 transition-transform duration-300 cursor-pointer">
+          <img src="../img/food.jpg" alt="food" class="w-full h-36 object-cover rounded-t-3xl">
+          <div class="m-4 mr-6">
+            <h2 class="text-xl font-bold max-[390px]:text-lg">ข้าวผัดไข่</h2>
+            <p class="text-orange-500 text-xl font-bold max-[390px]:text-lg">50
+              <span class="text-base font-light text-black">บาท</span>
+            </p>
+          </div>
+          <div class="flex justify-end mt-auto">
+            <button class=" bg-green-500 text-white font-medium text-xl rounded-tl-3xl rounded-br-3xl w-14 h-14 hover:bg-green-700 transition max-[390px]:text-lg">เพิ่ม</button>
+          </div>
+        </div>
+
+        <div class="bg-white flex flex-col rounded-3xl shadow-lg hover:scale-105 transition-transform duration-300 cursor-pointer">
+          <img src="../img/food.jpg" alt="food" class="w-full h-36 object-cover rounded-t-3xl">
+          <div class="m-4 mr-6">
+            <h2 class="text-xl font-bold max-[390px]:text-lg">ข้าวผัดไข่</h2>
+            <p class="text-orange-500 text-xl font-bold max-[390px]:text-lg">50
+              <span class="text-base font-light text-black">บาท</span>
+            </p>
+          </div>
+          <div class="flex justify-end mt-auto">
+            <button class=" bg-green-500 text-white font-medium text-xl rounded-tl-3xl rounded-br-3xl w-14 h-14 hover:bg-green-700 transition max-[390px]:text-lg">เพิ่ม</button>
+          </div>
+        </div>
+
+        <div class="bg-white flex flex-col rounded-3xl shadow-lg hover:scale-105 transition-transform duration-300 cursor-pointer">
+          <img src="../img/food.jpg" alt="food" class="w-full h-36 object-cover rounded-t-3xl">
+          <div class="m-4 mr-6">
+            <h2 class="text-xl font-bold max-[390px]:text-lg">ข้าวผัดไข่</h2>
+            <p class="text-orange-500 text-xl font-bold max-[390px]:text-lg">50
+              <span class="text-base font-light text-black">บาท</span>
+            </p>
+          </div>
+          <div class="flex justify-end mt-auto">
+            <button class=" bg-green-500 text-white font-medium text-xl rounded-tl-3xl rounded-br-3xl w-14 h-14 hover:bg-green-700 transition max-[390px]:text-lg">เพิ่ม</button>
+          </div>
+        </div>
+        
+        <div class="bg-white flex flex-col rounded-3xl shadow-lg hover:scale-105 transition-transform duration-300 cursor-pointer">
+          <img src="../img/food.jpg" alt="food" class="w-full h-36 object-cover rounded-t-3xl">
+          <div class="m-4 mr-6">
+            <h2 class="text-xl font-bold max-[390px]:text-lg">ข้าวผัดไข่</h2>
+            <p class="text-orange-500 text-xl font-bold max-[390px]:text-lg">50
+              <span class="text-base font-light text-black">บาท</span>
+            </p>
+          </div>
+          <div class="flex justify-end mt-auto">
+            <button class=" bg-green-500 text-white font-medium text-xl rounded-tl-3xl rounded-br-3xl w-14 h-14 hover:bg-green-700 transition max-[390px]:text-lg">เพิ่ม</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+    <!-- ตระกล้าของฉัน -->
+    <div class="p-6 fixed bottom-0 left-0 right-0 md:px-20 lg:px-32 xl:px-48 2xl:px-64">
+      <div class="bg-amber-500 rounded-full p-2 flex justify-between items-center hover:bg-amber-600 cursor-pointer">
+        <span class="bg-white rounded-full w-14 h-14 inline-flex items-center justify-center text-2xl font-medium">0</span>
+        <p class="text-xl font-semibold text-white flex-1 text-center">ตระกล้าของฉัน</p>
+        <p class="text-xl font-semibold text-white">0 บาท</p>
+      </div>
+    </div>
+    
   </body>
-  
+</html>
