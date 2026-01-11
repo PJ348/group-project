@@ -8,8 +8,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "tailwindcss -i ./src/input.css -o ./ลูกค้า/style.css --watch",
-    "dev2": "tailwindcss -i ./src/input.css -o ./เจ้าของร้าน/style.css --watch"
+    "dev": "tailwindcss -i ./src/input.css -o ./costumer/style.css --watch",
+    "dev2": "tailwindcss -i ./src/input.css -o ./owner/style.css --watch"
   },
   "dependencies": {
     "@tailwindcss/cli": "^4.1.18",
