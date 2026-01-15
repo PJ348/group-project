@@ -38,7 +38,9 @@
 
     <!-- กลับไปหน้าเมนู -->
     <div class="px-6 pt-8 flex items-center space-x-2">
-      <i class="fa-solid fa-chevron-left hover:cursor-pointer"></i>
+      <a href="./home.html">
+        <i class="fa-solid fa-chevron-left hover:cursor-pointer"></i>
+      </a>
       <p class="text-xl font-bold">กลับไปยังหน้าเมนู</p>
     </div>
 
@@ -59,22 +61,61 @@
         <div class="pb-6">
           <p class="pb-1">ระดับความเผ็ด</p>
           <form class="space-y-2">
-            <div
-              class="border border-gray-300 rounded-lg px-4 py-2 flex items-center space-x-2 hover:bg-gray-100 transition">
-              <input type="radio" id="spicy1" name="spice" value="spicy1">
+            <div class="border border-gray-300 rounded-lg px-4 py-2 flex items-center space-x-2 hover:bg-gray-100 transition">
+              <input type="radio" id="spicy1" name="spice" value="spicy1" required>
               <label for="spicy1">เผ็ดมาก</label>
             </div>
 
-            <div
-              class="border border-gray-300 rounded-lg px-4 py-2 flex items-center space-x-2 hover:bg-gray-100 transition">
+            <div class="border border-gray-300 rounded-lg px-4 py-2 flex items-center space-x-2 hover:bg-gray-100 transition">
               <input type="radio" id="spicy2" name="spice" value="spicy2">
               <label for="spicy2">เผ็ดน้อย</label>
             </div>
 
-            <div
-              class="border border-gray-300 rounded-lg px-4 py-2 flex items-center space-x-2 hover:bg-gray-100 transition">
+            <div class="border border-gray-300 rounded-lg px-4 py-2 flex items-center space-x-2 hover:bg-gray-100 transition">
               <input type="radio" id="spicy3" name="spice" value="spicy3">
               <label for="spicy3">ไม่เผ็ด</label>
+            </div>
+          </form>
+        </div>
+
+        <!-- ประเภทเนื้อสัตว์ -->
+        <div class="pb-6">
+          <p class="pb-1">ประเภทเนื้อสัตว์</p>
+          <form class="space-y-2">
+            <div class="border border-gray-300 rounded-lg px-4 py-2 flex items-center space-x-2 hover:bg-gray-100 transition">
+              <input type="radio" id="minced" name="meat" value="minced" required>
+              <label for="minced">หมูสับ</label>
+            </div>
+
+            <div class="border border-gray-300 rounded-lg px-4 py-2 flex items-center space-x-2 hover:bg-gray-100 transition">
+              <input type="radio" id="slice" name="meat" value="slice">
+              <label for="slice">หมูชิ้น</label>
+            </div>
+
+            <div class="border border-gray-300 rounded-lg px-4 py-2 flex items-center space-x-2 hover:bg-gray-100 transition">
+              <input type="radio" id="belly" name="meat" value="belly">
+              <label for="belly">หมูสามชั้น</label>
+            </div>
+
+            <div class="border border-gray-300 rounded-lg px-4 py-2 flex items-center space-x-2 hover:bg-gray-100 transition">
+              <input type="radio" id="chicken" name="meat" value="chicken">
+              <label for="chicken">ไก่ชิ้น</label>
+            </div>
+          </form>
+        </div>
+
+        <!-- พิเศษ ธรรมดา -->
+        <div class="pb-6">
+          <p class="pb-1">ระดับปริมาณ</p>
+          <form class="space-y-2">
+            <div class="border border-gray-300 rounded-lg px-4 py-2 flex items-center space-x-2 hover:bg-gray-100 transition">
+              <input type="radio" id="normal" name="size" value="normal" required>
+              <label for="normal">ธรรมดา</label>
+            </div>
+
+            <div class="border border-gray-300 rounded-lg px-4 py-2 flex items-center space-x-2 hover:bg-gray-100 transition">
+              <input type="radio" id="extra" name="size" value="extra">
+              <label for="extra">พิเศษ</label>
             </div>
           </form>
         </div>
@@ -83,20 +124,19 @@
         <div class="pb-6">
           <p class="pb-1">เพิ่มเติม</p>
           <form class="space-y-2">
-            <div
-              class="border border-gray-300 rounded-lg px-4 py-2 flex items-center space-x-2 hover:bg-gray-100 transition">
-              <input type="radio" id="back-home" name="eat-where" value="back-home">
+            <div class="border border-gray-300 rounded-lg px-4 py-2 flex items-center space-x-2 hover:bg-gray-100 transition">
+              <input type="radio" id="back-home" name="eat-where" value="back-home" required>
               <label for="back-home">กลับบ้าน</label>
             </div>
 
-            <div
-              class="border border-gray-300 rounded-lg px-4 py-2 flex items-center space-x-2 hover:bg-gray-100 transition">
+            <div class="border border-gray-300 rounded-lg px-4 py-2 flex items-center space-x-2 hover:bg-gray-100 transition">
               <input type="radio" id="eat-here" name="eat-where" value="eat-here">
               <label for="eat-here">ทานที่นี่</label>
             </div>
           </form>
         </div>
 
+        
         <!-- คำขอเพิ่มเติม -->
         <div class="pb-6">
           <p class="pb-1">คำขอเพิ่มเติม</p>
@@ -129,14 +169,15 @@
   </main>
 
   <!-- ตระกล้าของฉัน -->
-  <div class="p-6 fixed bottom-0 left-0 right-0 md:px-20 lg:px-32 xl:px-48 2xl:px-64">
-    <div class="bg-amber-500 rounded-full p-2 flex space-x-4 items-center hover:bg-amber-600 cursor-pointer">
-      <span
-        class="bg-white rounded-full w-12 h-12 inline-flex items-center justify-center text-2xl font-medium">0</span>
-      <p class="text-xl font-semibold text-white flex-1 text-center">ตระกล้าของฉัน</p>
-      <p class="text-xl font-semibold text-white pr-4">0 บาท</p>
+  <a href="./cart.html">
+    <div class="p-6 fixed bottom-0 left-0 right-0 sm:hidden">
+      <div class="bg-amber-500 rounded-full p-2 flex space-x-4 items-center hover:bg-amber-600 cursor-pointer">
+        <span class="bg-white rounded-full w-12 h-12 inline-flex items-center justify-center text-2xl font-medium">0</span>
+        <p class="text-xl font-semibold text-white flex-1 text-center">ตระกร้าของฉัน</p>
+        <p class="text-xl font-semibold text-white pr-4">0 บาท</p>
+      </div>
     </div>
-  </div>
+  </a>
 
 </body>
 </html>
