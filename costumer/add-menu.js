@@ -92,11 +92,10 @@ function addMenuPage(groupId) {
 
 // เช้คว่ากดกลับบ้านรึเปล่า
 
-function toggleEatMode(mode) {                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+function toggleEatMode(mode) {
 
     const eatHere = document.getElementById('eatHere');
     const backHome = document.getElementById('backHome');
-
 
     const detailBackHome = document.getElementById('detailBackHome');
     const detailEatHere = document.getElementById('detailEatHere');
@@ -105,6 +104,8 @@ function toggleEatMode(mode) {
     const meat = document.getElementsByName('meat');
     const size = document.getElementsByName('size');
     const eatWhere = document.getElementsByName('eat-where');
+
+    const table = numberTable.value.trim();
 
     // Class สำหรับปุ่มที่ถูกเลือก (สีเขียว ตัวหนังสือขาว)
     const activeClass = ['bg-green-500', 'text-white'];
@@ -135,6 +136,8 @@ function toggleEatMode(mode) {
         for (let i = 0; i < eatWhere.length; i++) {
             eatWhere[i].checked = false;
         }
+
+
 
         document.getElementById('nameBuy').value = '';
         document.getElementById('phoneBuy').value = '';
@@ -226,12 +229,12 @@ function checkSelection() {
     const backHome = document.getElementById('backHome');
     const eatHere = document.getElementById('eatHere');
 
-    const nameBuy = document.getElementById('nameBuy');
-    const phoneBuy = document.getElementById('phoneBuy');
-    const numberTable = document.getElementById('numberTable');
+    // const nameBuy = document.getElementById('nameBuy');
+    // const phoneBuy = document.getElementById('phoneBuy');
 
-    const phone = phoneBuy.value.trim();
-    const table = numberTable.value.trim();
+
+    // const phone = phoneBuy.value.trim();
+
 
     if (!isChecked('spicy')) {
         alert("กรุณาเลือกระดับความเผ็ด");
@@ -249,30 +252,13 @@ function checkSelection() {
         return;
     }
 
-    // if (!isChecked('eat-where')) {
-    //     alert("กรุณาเลือกสถานที่รับประทานอาหาร");
-    //     return;
-    // }
 
-    // if (backHome.checked) {
+    const detailEatHere = document.getElementById('detailEatHere');
+    const isEatHere = !detailEatHere.classList.contains('hidden');
 
-    //     if (nameBuy.value.trim() === '') {
-    //         alert('กรุณากรอกชื่อ');
-    //         return;
-    //     }
-
-    //     if (phone === '') {
-    //         alert('กรุณากรอกเบอร์โทรศัพท์');
-    //         return;
-    //     }
-
-    //     if (!/^0\d{9}$/.test(phone)) { //ถ้าไม่ เริ่มจาก0แล้วมีเลขต่อท้ายอีก9ตัวแล้วจบ test()คือเช็คใน()
-    //         alert('กรุณากรอกเบอร์โทรศัพท์ให้ถูกต้อง');
-    //         return;
-    //     }
-    // }
-
-    if (eatHere.checked) {
+    if (isEatHere) {
+        const numberTable = document.getElementById('numberTable');
+        const table = numberTable.value.trim();
 
         if (table === '') {
             alert('กรุณาระบุเลขโต๊ะ');
@@ -283,8 +269,30 @@ function checkSelection() {
             alert('กรุณากรอกเลขโต๊ะให้ถูกต้อง');
         }
     }
-}
 
+    else{
+        const nameBuy = document.getElementById('nameBuy');
+        const name = nameBuy.value.trim();
+        const phoneBuy = document.getElementById('phoneBuy');
+        const phone = phoneBuy.value.trim();
+
+        if (name === '') {
+            alert('กรุณาระบุชื่อผู้รับอาหาร');
+            return;
+        }
+
+        if (phone === ''){
+            alert('กรุณากรอกเบอร์โทรศัพท์');
+            return;
+        }
+        if (!/^\d{10}$/.test(phone)) {
+            alert('กรุณากรอกเบอร์โทรศัพท์ให้ถูกต้อง (10หลัก)');
+            return;
+        }
+
+    }
+
+}
 
 
 // กดเพิ่มจำนวนเมนู + ราคารวม
