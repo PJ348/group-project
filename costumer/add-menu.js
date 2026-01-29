@@ -4,62 +4,62 @@ const menus = [
         id: 0,
         name: 'ข้าวห่อหมกทะเลไข่ข้น',
         price: 55,
-        img: '../img/food-menu1.jpg'
+        img: './img/food-menu1.jpg'
     },
 
     {
         id: 1,
         name: 'ข้าวผัดพริกแกง',
         price: 50,
-        img: '../img/food-menu2.jpg'
+        img: './img/food-menu2.jpg'
     },
 
     {
         id: 2,
         name: 'ข้าวไข่ขยี้ปลากระป๋อง',
         price: 55,
-        img: '../img/food-menu3.jpg'
+        img: './img/food-menu3.jpg'
     },
 
     {
         id: 3,
         name: 'ข้าวกะเพรา',
         price: 40,
-        img: '../img/food-menu4.jpg'
+        img: './img/food-menu4.jpg'
     },
 
     {
         id: 4,
         name: 'ข้าวหมูคั่วพริกเกลือ',
         price: 45,
-        img: '../img/food-menu5.jpg'
+        img: './img/food-menu5.jpg'
     },
 
     {
         id: 5,
         name: 'ข้าวไข่เจียว',
         price: 40,
-        img: '../img/food-menu6.jpg'
+        img: './img/food-menu6.jpg'
     },
 
     {
         id: 6,
         name: 'ข้าวทะเลผัดผงกระหรี่',
         price: 55,
-        img: '../img/food-menu7.jpg'
+        img: './img/food-menu7.jpg'
     },
 
     {
         id: 7,
         name: 'ข้าวหน้าหมูเทอริยากิ',
         price: 55,
-        img: '../img/food-menu8.jpg'
+        img: './img/food-menu8.jpg'
     }
 ]
 
 // ลิ้งไปหน้าตะกร้า
 function goCartPage(){
-    window.location.href = './cart.html' ;
+    window.location.href = './index.html' ;
 }
 
 // กดเพิ่มเมนูแล้วซ่อนหน้าหลักแล้วให้หน้ารายละเอียดเมนูขึ้นมาแทน
@@ -282,14 +282,14 @@ function checkSelection() {
             alert('กรุณากรอกเบอร์โทรศัพท์');
             return;
         }
-        if (!/^\d{10}$/.test(phone)) {
+        if (!/^0\d{9}$/.test(phone)) {
             alert('กรุณากรอกเบอร์โทรศัพท์ให้ถูกต้อง (10หลัก)');
             return;
         }
 
     }
 
-    
+
 }
 
 
