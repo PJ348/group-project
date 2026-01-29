@@ -59,7 +59,7 @@ const menus = [
 
 // ลิ้งหน้าไปหน้าhome
 function goHomePage(){
-    window.location.href = './try.html' ;
+    window.location.href = './index.html' ;
 }
 
 // กดยืนสั่งสั่งรายการอาหาร
@@ -77,7 +77,7 @@ function confirmOrder(groupId){
 
     if(groupId === 'confirmOrder'){
 
-        if(allFoodOrder.children.length == 0){
+        if(allFoodOrder.children.length !== 0){
             orderDone.classList.remove('hidden');
             confirmOrder.classList.add('hidden');
     

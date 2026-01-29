@@ -19,7 +19,7 @@
 
             <!-- ส่วนโลโก้ ฝั่งซ้าย -->
             <div class="flex flex-row items-center space-x-2">
-                <img src="../img/logo.png" alt="Logo" class="w-20 rounded-full">
+                <img src="./img/logo.png" alt="Logo" class="w-20 rounded-full">
                 <div class="text-white">
                     <p class="text-xl font-bold">ร้านสดชื่น</p>
                     <p class="text-base font-light">หน้าม.พะเยา</p>
@@ -169,7 +169,7 @@
                         <span class="text-base font-light text-black">บาท</span>
                     </p>
 
-                    <button onclick="addMenuPage(4)"
+                    <button onclick="addMenuPage(6)"
                         class=" bg-neutral-400 text-neutral-500 font-medium text-lg rounded-full px-4 py-1 flex justify-between items-center gap-1 max-[390px]:text-lg"><i
                             class="fa-solid fa-ban text-sm"></i>หมด</button>
                 </div>
@@ -193,178 +193,182 @@
 
     </main>
 
-    <!-- กลับไปหน้าเมนู -->
-    <div class="px-6 pt-8 flex items-center space-x-2" onclick="backHomePage()">
-        <div class="bg-white p-2 rounded-full w-10 h-10 flex justify-center items-center shadow-lg">
-            <i class="fa-solid fa-chevron-left hover:cursor-pointer"></i>
-        </div>
-        <p class="text-lg font-bold">รายการอาหาร</p>
-    </div>
 
-    <main id="addMenu" class=" hidden p-6 pt-8 max-sm:pb-[240px] flex flex-row sm:space-x-4">
+    <main id="addMenu" class="hidden">
 
-        <!-- รูปฝั่งซ้าย -->
-        <div class="bg-white flex-col pb-6 w-full h-fit rounded-2xl">
-            <img id="addMenuImg" alt="food" class="w-full h-80 object-cover rounded-t-2xl">
-            <div class="flex justify-between px-6 pt-6">
-                <p id="addMenuName" class="text-xl font-bold"></p>
-                <p id="addMenuPrice" class="text-xl font-bold text-amber-500"> <span
-                        class="text-base font-light text-black">บาท</span></p>
+        <!-- กลับไปหน้าเมนู -->
+        <div class="px-6 pt-8 flex items-center space-x-2" onclick="backHomePage()">
+            <div class="bg-white p-2 rounded-full w-10 h-10 flex justify-center items-center shadow-lg">
+                <i class="fa-solid fa-chevron-left hover:cursor-pointer"></i>
             </div>
+            <p class="text-lg font-bold">รายการอาหาร</p>
         </div>
-
-        <!-- รายละเอียดเมนู -->
-        <div class="flex flex-row gap-4 w-full">
-
-            <!-- ส่วนการ์ดขาวฝั่งขวา -->
-            <div class="bg-white p-8 rounded-2xl shadow-lg w-full">
-                <p class="flex justify-center">ตัวเลือก</p>
-
-                <!-- ตัวเลือกทานนี่หรือกลับบ้าน -->
-                <div class="bg-white border-4 border-green-500 rounded-full flex h-12 w-full shadow-lg">
-
-                    <!-- ทานนี่ -->
-                    <div class="flex flex-row w-full h-full">
-
-                        <div id="eatHere" class="bg-green-500 w-full h-full flex items-center justify-center rounded-full cursor-pointer text-white" onclick="toggleEatMode('eat-here')">
-                            <p class=" text-lg font-bold">ทานที่ร้าน</p>
-                        </div>
-
-                        <div id="backHome" class="w-full h-full flex items-center justify-center rounded-full cursor-pointer hover:bg-gray-50" onclick="toggleEatMode('back-home')">
-                            <p class="text-lg font-bold">สั่งกลับบ้าน</p>
-                        </div>
-
-                    </div>
-
+    
+        <main id="addMenu" class="p-6 pt-8 max-sm:pb-[240px] flex flex-row sm:space-x-4">
+    
+            <!-- รูปฝั่งซ้าย -->
+            <div class="bg-white flex-col pb-6 w-full h-fit rounded-2xl">
+                <img id="addMenuImg" alt="food" class="w-full h-80 object-cover rounded-t-2xl">
+                <div class="flex justify-between px-6 pt-6">
+                    <p id="addMenuName" class="text-xl font-bold"></p>
+                    <p id="addMenuPrice" class="text-xl font-bold text-amber-500"> <span
+                            class="text-base font-light text-black">บาท</span></p>
                 </div>
-                    
-
-                <!-- ข้อมูลให้กรอก -->
-                <div class="py-6">
-                    <!-- เบอร์โต๊ะ -->
-                    <div class="space-y-2" id="detailEatHere">
-                        <p class="pb-1">เลขโต๊ะ</p>
-                        <input type="text" placeholder="ระบุเลขโต๊ะ" id="numberTable"
-                            class="border border-gray-300 rounded-lg px-1 py-1 w-full p-6" />
+            </div>
+    
+            <!-- รายละเอียดเมนู -->
+            <div class="flex flex-row gap-4 w-full">
+    
+                <!-- ส่วนการ์ดขาวฝั่งขวา -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg w-full">
+                    <p class="flex justify-center">ตัวเลือก</p>
+    
+                    <!-- ตัวเลือกทานนี่หรือกลับบ้าน -->
+                    <div class="bg-white border-4 border-green-500 rounded-full flex h-12 w-full shadow-lg">
+    
+                        <!-- ทานนี่ -->
+                        <div class="flex flex-row w-full h-full">
+    
+                            <div id="eatHere" class="bg-green-500 w-full h-full flex items-center justify-center rounded-full cursor-pointer text-white" onclick="toggleEatMode('eat-here')">
+                                <p class=" text-lg font-bold">ทานที่ร้าน</p>
+                            </div>
+    
+                            <div id="backHome" class="w-full h-full flex items-center justify-center rounded-full cursor-pointer hover:bg-gray-50" onclick="toggleEatMode('back-home')">
+                                <p class="text-lg font-bold">สั่งกลับบ้าน</p>
+                            </div>
+    
+                        </div>
+    
                     </div>
-                    <!-- กลับบ้าน -->
-                    <div class="hidden space-y-2" id="detailBackHome">
-                        <p class="pb-1 ">ชื่อ</p>
-                        <input type="text" placeholder="ชื่อผู้รับอาหาร" id="nameBuy"
+                        
+    
+                    <!-- ข้อมูลให้กรอก -->
+                    <div class="py-6">
+                        <!-- เบอร์โต๊ะ -->
+                        <div class="space-y-2" id="detailEatHere">
+                            <p class="pb-1">เลขโต๊ะ</p>
+                            <input type="text" placeholder="ระบุเลขโต๊ะ" id="numberTable"
+                                class="border border-gray-300 rounded-lg px-1 py-1 w-full p-6" />
+                        </div>
+                        <!-- กลับบ้าน -->
+                        <div class="hidden space-y-2" id="detailBackHome">
+                            <p class="pb-1 ">ชื่อ</p>
+                            <input type="text" placeholder="ชื่อผู้รับอาหาร" id="nameBuy"
+                                class="border border-gray-300 rounded-lg px-1 py-1 w-full" />
+                            <p class="pb-1">เบอร์โทรศัพท์</p>
+                            <input type="tel" placeholder="เบอร์โทรผู้รับอาหาร" id="phoneBuy"
+                                class="border border-gray-300 rounded-lg px-1 py-1 w-full" />
+                        </div>
+    
+                    </div>
+    
+    
+                    <!-- ระดับความเผ็ด -->
+                    <div class="pb-6">
+                        <p class="pb-1">ระดับความเผ็ด</p>
+                        <form class="space-y-2">
+                            <div
+                                class="border border-gray-300 rounded-lg px-4 py-2 flex items-center space-x-2 hover:bg-gray-100 transition">
+                                <input type="radio" id="spicy1" name="spicy" value="spicy1" required>
+                                <label for="spicy1">เผ็ดมาก</label>
+                            </div>
+    
+                            <div
+                                class="border border-gray-300 rounded-lg px-4 py-2 flex items-center space-x-2 hover:bg-gray-100 transition">
+                                <input type="radio" id="spicy2" name="spicy" value="spicy2">
+                                <label for="spicy2">เผ็ดน้อย</label>
+                            </div>
+    
+                            <div
+                                class="border border-gray-300 rounded-lg px-4 py-2 flex items-center space-x-2 hover:bg-gray-100 transition">
+                                <input type="radio" id="spicy3" name="spicy" value="spicy3">
+                                <label for="spicy3">ไม่เผ็ด</label>
+                            </div>
+                        </form>
+                    </div>
+    
+                    <!-- ประเภทเนื้อสัตว์ -->
+                    <div class="pb-6">
+                        <p class="pb-1">ประเภทเนื้อสัตว์</p>
+                        <form class="space-y-2">
+                            <div
+                                class="border border-gray-300 rounded-lg px-4 py-2 flex items-center space-x-2 hover:bg-gray-100 transition">
+                                <input type="radio" id="minced" name="meat" value="minced" required>
+                                <label for="minced">หมูสับ</label>
+                            </div>
+    
+                            <div
+                                class="border border-gray-300 rounded-lg px-4 py-2 flex items-center space-x-2 hover:bg-gray-100 transition">
+                                <input type="radio" id="slice" name="meat" value="slice">
+                                <label for="slice">หมูชิ้น</label>
+                            </div>
+    
+                            <div
+                                class="border border-gray-300 rounded-lg px-4 py-2 flex items-center space-x-2 hover:bg-gray-100 transition">
+                                <input type="radio" id="belly" name="meat" value="belly">
+                                <label for="belly">หมูสามชั้น</label>
+                            </div>
+    
+                            <div
+                                class="border border-gray-300 rounded-lg px-4 py-2 flex items-center space-x-2 hover:bg-gray-100 transition">
+                                <input type="radio" id="chicken" name="meat" value="chicken">
+                                <label for="chicken">ไก่ชิ้น</label>
+                            </div>
+                        </form>
+                    </div>
+    
+                    <!-- พิเศษ ธรรมดา -->
+                    <div class="pb-6">
+                        <p class="pb-1">ปริมาณอาหาร</p>
+                        <form class="space-y-2">
+                            <div
+                                class="border border-gray-300 rounded-lg px-4 py-2 flex items-center space-x-2 hover:bg-gray-100 transition">
+                                <input type="radio" id="extra" name="size" value="extra">
+                                <label for="extra">พิเศษ</label>
+                            </div>
+    
+                            <div
+                                class="border border-gray-300 rounded-lg px-4 py-2 flex items-center space-x-2 hover:bg-gray-100 transition">
+                                <input type="radio" id="normal" name="size" value="normal" required>
+                                <label for="normal">ธรรมดา</label>
+                            </div>
+                        </form>
+                    </div>
+    
+                    <!-- คำขอเพิ่มเติม -->
+                    <div class="pb-6">
+                        <p class="pb-1">คำขอเพิ่มเติม</p>
+                        <input type="text" id="req" name="req" placeholder="ระบุคำขอเพิ่มเติม"
                             class="border border-gray-300 rounded-lg px-1 py-1 w-full" />
-                        <p class="pb-1">เบอร์โทรศัพท์</p>
-                        <input type="tel" placeholder="เบอร์โทรผู้รับอาหาร" id="phoneBuy"
-                            class="border border-gray-300 rounded-lg px-1 py-1 w-full" />
                     </div>
-
-                </div>
-
-
-                <!-- ระดับความเผ็ด -->
-                <div class="pb-6">
-                    <p class="pb-1">ระดับความเผ็ด</p>
-                    <form class="space-y-2">
-                        <div
-                            class="border border-gray-300 rounded-lg px-4 py-2 flex items-center space-x-2 hover:bg-gray-100 transition">
-                            <input type="radio" id="spicy1" name="spicy" value="spicy1" required>
-                            <label for="spicy1">เผ็ดมาก</label>
+    
+                    <!-- เพิ่มจำนวน -->
+                    <div class="px-6 pt-4 pb-8 flex justify-between space-x-2">
+                        <p class="text-xl font-medium">จำนวน</p>
+                        <div class="bg-neutral-300 rounded-full p-1 flex justify-between items-center space-x-4">
+                            <button class=" bg-white rounded-full w-6 h-6 flex items-center justify-center cursor-pointer"
+                                id="minusMenu" onclick="minusMenu(this)"><i class="fa-solid fa-minus text-sm"></i></button>
+                            <span class="font-medium" id="value">1</span>
+                            <button
+                                class=" bg-amber-500 rounded-full w-6 h-6 flex items-center justify-center cursor-pointer"
+                                id="plusMenu" onclick="plusMenu(this)"> <i class="fa-solid fa-plus text-sm"></i></button>
                         </div>
-
-                        <div
-                            class="border border-gray-300 rounded-lg px-4 py-2 flex items-center space-x-2 hover:bg-gray-100 transition">
-                            <input type="radio" id="spicy2" name="spicy" value="spicy2">
-                            <label for="spicy2">เผ็ดน้อย</label>
-                        </div>
-
-                        <div
-                            class="border border-gray-300 rounded-lg px-4 py-2 flex items-center space-x-2 hover:bg-gray-100 transition">
-                            <input type="radio" id="spicy3" name="spicy" value="spicy3">
-                            <label for="spicy3">ไม่เผ็ด</label>
-                        </div>
-                    </form>
-                </div>
-
-                <!-- ประเภทเนื้อสัตว์ -->
-                <div class="pb-6">
-                    <p class="pb-1">ประเภทเนื้อสัตว์</p>
-                    <form class="space-y-2">
-                        <div
-                            class="border border-gray-300 rounded-lg px-4 py-2 flex items-center space-x-2 hover:bg-gray-100 transition">
-                            <input type="radio" id="minced" name="meat" value="minced" required>
-                            <label for="minced">หมูสับ</label>
-                        </div>
-
-                        <div
-                            class="border border-gray-300 rounded-lg px-4 py-2 flex items-center space-x-2 hover:bg-gray-100 transition">
-                            <input type="radio" id="slice" name="meat" value="slice">
-                            <label for="slice">หมูชิ้น</label>
-                        </div>
-
-                        <div
-                            class="border border-gray-300 rounded-lg px-4 py-2 flex items-center space-x-2 hover:bg-gray-100 transition">
-                            <input type="radio" id="belly" name="meat" value="belly">
-                            <label for="belly">หมูสามชั้น</label>
-                        </div>
-
-                        <div
-                            class="border border-gray-300 rounded-lg px-4 py-2 flex items-center space-x-2 hover:bg-gray-100 transition">
-                            <input type="radio" id="chicken" name="meat" value="chicken">
-                            <label for="chicken">ไก่ชิ้น</label>
-                        </div>
-                    </form>
-                </div>
-
-                <!-- พิเศษ ธรรมดา -->
-                <div class="pb-6">
-                    <p class="pb-1">ปริมาณอาหาร</p>
-                    <form class="space-y-2">
-                        <div
-                            class="border border-gray-300 rounded-lg px-4 py-2 flex items-center space-x-2 hover:bg-gray-100 transition">
-                            <input type="radio" id="extra" name="size" value="extra">
-                            <label for="extra">พิเศษ</label>
-                        </div>
-
-                        <div
-                            class="border border-gray-300 rounded-lg px-4 py-2 flex items-center space-x-2 hover:bg-gray-100 transition">
-                            <input type="radio" id="normal" name="size" value="normal" required>
-                            <label for="normal">ธรรมดา</label>
-                        </div>
-                    </form>
-                </div>
-
-                <!-- คำขอเพิ่มเติม -->
-                <div class="pb-6">
-                    <p class="pb-1">คำขอเพิ่มเติม</p>
-                    <input type="text" id="req" name="req" placeholder="ระบุคำขอเพิ่มเติม"
-                        class="border border-gray-300 rounded-lg px-1 py-1 w-full" />
-                </div>
-
-                <!-- เพิ่มจำนวน -->
-                <div class="px-6 pt-4 pb-8 flex justify-between space-x-2">
-                    <p class="text-xl font-medium">จำนวน</p>
-                    <div class="bg-neutral-300 rounded-full p-1 flex justify-between items-center space-x-4">
-                        <button class=" bg-white rounded-full w-6 h-6 flex items-center justify-center cursor-pointer"
-                            id="minusMenu" onclick="minusMenu(this)"><i class="fa-solid fa-minus text-sm"></i></button>
-                        <span class="font-medium" id="value">1</span>
+                    </div>
+    
+                    <!-- ยอดรวม -->
+                    <div class="flex justify-between px-6 pb-6">
+                        <p class="text-xl font-bold">รวม</p>
+                        <p class="text-xl font-bold text-amber-500" id="price">50 บาท</p>
+                    </div>
+    
+                    <!-- ปุ่มเพิ่มลงตระกล้า -->
+                    <div class="flex justify-center px-6 " onclick="checkSelection()">
                         <button
-                            class=" bg-amber-500 rounded-full w-6 h-6 flex items-center justify-center cursor-pointer"
-                            id="plusMenu" onclick="plusMenu(this)"> <i class="fa-solid fa-plus text-sm"></i></button>
+                            class=" bg-green-500 text-white font-medium text-xl rounded-3xl w-full h-14 hover:bg-green-700 transition cursor-pointer">เพิ่มไปยังตระกล้า</button>
                     </div>
+    
                 </div>
-
-                <!-- ยอดรวม -->
-                <div class="flex justify-between px-6 pb-6">
-                    <p class="text-xl font-bold">รวม</p>
-                    <p class="text-xl font-bold text-amber-500" id="price">50 บาท</p>
-                </div>
-
-                <!-- ปุ่มเพิ่มลงตระกล้า -->
-                <div class="flex justify-center px-6 " onclick="checkSelection()">
-                    <button
-                        class=" bg-green-500 text-white font-medium text-xl rounded-3xl w-full h-14 hover:bg-green-700 transition cursor-pointer">เพิ่มไปยังตระกล้า</button>
-                </div>
-
-            </div>
+        </main>
     </main>
 
     <!-- ตระกร้าของฉัน -->

@@ -59,7 +59,7 @@ const menus = [
 
 // ลิ้งไปหน้าตะกร้า
 function goCartPage(){
-    window.location.href = './index.html' ;
+    window.location.href = './cart.html' ;
 }
 
 // กดเพิ่มเมนูแล้วซ่อนหน้าหลักแล้วให้หน้ารายละเอียดเมนูขึ้นมาแทน
@@ -264,6 +264,7 @@ function checkSelection() {
 
         if (!/^[1-4]$/.test(table)) {
             alert('กรุณากรอกเลขโต๊ะให้ถูกต้อง');
+            return;
         }
     }
 
@@ -289,6 +290,7 @@ function checkSelection() {
 
     }
 
+    alert("เพิ่มเมนูลงตะกร้าเรียบร้อยแล้ว");
 
 }
 
