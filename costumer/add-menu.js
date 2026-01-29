@@ -57,6 +57,11 @@ const menus = [
     }
 ]
 
+// ลิ้งไปหน้าตะกร้า
+function goCartPage(){
+    window.location.href = './cart.html' ;
+}
+
 // กดเพิ่มเมนูแล้วซ่อนหน้าหลักแล้วให้หน้ารายละเอียดเมนูขึ้นมาแทน
 function addMenuPage(groupId) {
     const home = document.getElementById('home');
@@ -226,19 +231,12 @@ function isChecked(name) {
 }
 //เช็คว่าเราติ้ก กรอกถูกมั้ย ทุกอันครบมั้ย
 function checkSelection() {
-    const backHome = document.getElementById('backHome');
-    const eatHere = document.getElementById('eatHere');
-
-    // const nameBuy = document.getElementById('nameBuy');
-    // const phoneBuy = document.getElementById('phoneBuy');
-
-
-    // const phone = phoneBuy.value.trim();
-
+    
+    // const backHome = document.getElementById('backHome');
+    // const eatHere = document.getElementById('eatHere');
 
     if (!isChecked('spicy')) {
         alert("กรุณาเลือกระดับความเผ็ด");
-        // document.querySelector('input[name="spicy"]').focus();
         return;
     }
 
@@ -251,7 +249,6 @@ function checkSelection() {
         alert("กรุณาเลือกปริมาณอาหาร");
         return;
     }
-
 
     const detailEatHere = document.getElementById('detailEatHere');
     const isEatHere = !detailEatHere.classList.contains('hidden');
@@ -292,6 +289,7 @@ function checkSelection() {
 
     }
 
+    
 }
 
 
