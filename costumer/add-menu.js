@@ -96,7 +96,6 @@ function addMenuPage(groupId) {
 }
 
 // เช้คว่ากดกลับบ้านรึเปล่า
-
 function toggleEatMode(mode) {
 
     const eatHere = document.getElementById('eatHere');
@@ -129,26 +128,26 @@ function toggleEatMode(mode) {
         detailEatHere.classList.remove('hidden');
         detailBackHome.classList.add('hidden');
 
-        for (let i = 0; i < spicy.length; i++) {
-            spicy[i].checked = false;
-        }
-        for (let i = 0; i < meat.length; i++) {
-            meat[i].checked = false;
-        }
-        for (let i = 0; i < size.length; i++) {
-            size[i].checked = false;
-        }
-        for (let i = 0; i < eatWhere.length; i++) {
-            eatWhere[i].checked = false;
-        }
+        // for (let i = 0; i < spicy.length; i++) {
+        //     spicy[i].checked = false;
+        // }
+        // for (let i = 0; i < meat.length; i++) {
+        //     meat[i].checked = false;
+        // }
+        // for (let i = 0; i < size.length; i++) {
+        //     size[i].checked = false;
+        // }
+        // for (let i = 0; i < eatWhere.length; i++) {
+        //     eatWhere[i].checked = false;
+        // }
 
 
 
         document.getElementById('nameBuy').value = '';
         document.getElementById('phoneBuy').value = '';
 
-        document.getElementById('req').value = '';
-        document.getElementById('value').innerText = '1';
+        // document.getElementById('req').value = '';
+        // document.getElementById('value').innerText = '1';
 
     }
 
@@ -164,32 +163,32 @@ function toggleEatMode(mode) {
         detailBackHome.classList.remove('hidden');
         detailEatHere.classList.add('hidden');
 
-        for (let i = 0; i < spicy.length; i++) {
-            spicy[i].checked = false;
-        }
-        for (let i = 0; i < meat.length; i++) {
-            meat[i].checked = false;
-        }
-        for (let i = 0; i < size.length; i++) {
-            size[i].checked = false;
-        }
-        for (let i = 0; i < eatWhere.length; i++) {
-            eatWhere[i].checked = false;
-        }
+        // for (let i = 0; i < spicy.length; i++) {
+        //     spicy[i].checked = false;
+        // }
+        // for (let i = 0; i < meat.length; i++) {
+        //     meat[i].checked = false;
+        // }
+        // for (let i = 0; i < size.length; i++) {
+        //     size[i].checked = false;
+        // }
+        // for (let i = 0; i < eatWhere.length; i++) {
+        //     eatWhere[i].checked = false;
+        // }
 
+        Price = menu.price;
         document.getElementById('numberTable').value = '';
 
-        document.getElementById('req').value = '';
-        document.getElementById('value').innerText = '1';
+        // document.getElementById('req').value = '';
+        // document.getElementById('value').innerText = '1';
+        document.getElementById('price').innerText = Price;
     }
 
 }
 
-
-
-
 // กดหลับไปหน้าhomeเหมือนเดิม
 function backHomePage() {
+    
     const home = document.getElementById('home');
     const addMenu = document.getElementById('addMenu');
 

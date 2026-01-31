@@ -73,11 +73,11 @@ function confirmOrder(groupId){
     const confirmOrderGoHome = document.getElementById('confirmOrderGoHome');
     const orderDoneGoHome = document.getElementById('orderDoneGoHome');
 
-    const allFoodOrder = document.getElementById('foodOrder');
+    const allFoodOrder = document.getElementById('allFoodOrder');
 
     if(groupId === 'confirmOrder'){
 
-        if(allFoodOrder.children.length !== 0){
+        if(allFoodOrder.children.length > 0){
             orderDone.classList.remove('hidden');
             confirmOrder.classList.add('hidden');
     
@@ -103,19 +103,33 @@ function deleteOrder(){
         return;
 
     if(foodOrder){
-        foodOrder.classList.add('hidden');
+        foodOrder.remove();
     }
+
     bghfdgdfb();
 }
 
+// คำนวณราคาใหม่
 function bghfdgdfb() {
 
     let total = 0 ;
+    let list = 0;
+    let cart = 0;
 
-    let Price = parseInt(item.getAttribute('data-price'));
-    total += Price ;
+    const allFoodOrder = document.querySelectorAll('.allFoodOrder'); //เอากล่องที่อยู่ในall food order
 
-    document.getElementById('totalPrice').innerText = total + 'บาท' ;
+    // allFoodOrder.forEach(item => {
+    //     const price = parseInt(item.getAttribute('data-price')) || 0;
+    //     total += price;
+    // });
 
+    document.getElementById('totalPrice').innerText = total + " บาท" ;
+    document.getElementById('totalList').innerText = list + " รายการ" ;
+    document.getElementById('totalCart').innerText = cart ;
+
+    document.getElementById('totalPrice2').innerText = total + " บาท" ;
+    document.getElementById('totalList2').innerText = list + " รายการ" ;
+    document.getElementById('totalCart2').innerText = cart ;
+    
 }
 
