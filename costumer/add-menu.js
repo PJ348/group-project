@@ -66,6 +66,7 @@ function goCartPage(){
 function addMenuPage(groupId) {
     const home = document.getElementById('home');
     const addMenu = document.getElementById('addMenu');
+    const detailMenu = document.getElementById('detailMenu')
 
     let soldOut = [1, 4, 6];
     let menu = null;
@@ -87,110 +88,20 @@ function addMenuPage(groupId) {
     window.scrollTo(0, 0);
     home.classList.add('hidden');
     addMenu.classList.remove('hidden');
-
+    detailMenu.classList.add('hidden');
     document.getElementById('addMenuName').innerText = menu.name;
-    document.getElementById('addMenuPrice').innerText = menu.price + 'บาท';
+    document.getElementById('addMenuPrice').innerText = menu.price + ' บาท';
     document.getElementById('addMenuImg').src = menu.img;
-    document.getElementById('price').innerText = menu.price + 'บาท';
+    document.getElementById('price').innerText = menu.price + ' บาท';
 
-}
-
-// เช้คว่ากดกลับบ้านรึเปล่า
-function toggleEatMode(mode) {
-
-    const eatHere = document.getElementById('eatHere');
-    const backHome = document.getElementById('backHome');
-
-    const detailBackHome = document.getElementById('detailBackHome');
-    const detailEatHere = document.getElementById('detailEatHere');
-
-    const spicy = document.getElementsByName('spicy');
-    const meat = document.getElementsByName('meat');
-    const size = document.getElementsByName('size');
-    const eatWhere = document.getElementsByName('eat-where');
-
-    const table = numberTable.value.trim();
-
-    // Class สำหรับปุ่มที่ถูกเลือก (สีเขียว ตัวหนังสือขาว)
-    const activeClass = ['bg-green-500', 'text-white'];
-    // Class สำหรับปุ่มที่ไม่ได้เลือก (สีขาว ตัวหนังสือเทา)
-    const inactiveClass = ['bg-white', 'hover:bg-gray-50'];
-
-    if (mode === 'eat-here') {
-
-        eatHere.classList.add(...activeClass);
-        eatHere.classList.remove(...inactiveClass);
-
-        backHome.classList.add(...inactiveClass);
-        backHome.classList.remove(...activeClass);
-
-
-        detailEatHere.classList.remove('hidden');
-        detailBackHome.classList.add('hidden');
-
-        // for (let i = 0; i < spicy.length; i++) {
-        //     spicy[i].checked = false;
-        // }
-        // for (let i = 0; i < meat.length; i++) {
-        //     meat[i].checked = false;
-        // }
-        // for (let i = 0; i < size.length; i++) {
-        //     size[i].checked = false;
-        // }
-        // for (let i = 0; i < eatWhere.length; i++) {
-        //     eatWhere[i].checked = false;
-        // }
-
-
-
-        document.getElementById('nameBuy').value = '';
-        document.getElementById('phoneBuy').value = '';
-
-        // document.getElementById('req').value = '';
-        // document.getElementById('value').innerText = '1';
-
-    }
-
-    if (mode === 'back-home') {
-
-        backHome.classList.add(...activeClass);
-        backHome.classList.remove(...inactiveClass);
-
-        eatHere.classList.add(...inactiveClass);
-        eatHere.classList.remove(...activeClass);
-
-
-        detailBackHome.classList.remove('hidden');
-        detailEatHere.classList.add('hidden');
-
-        // for (let i = 0; i < spicy.length; i++) {
-        //     spicy[i].checked = false;
-        // }
-        // for (let i = 0; i < meat.length; i++) {
-        //     meat[i].checked = false;
-        // }
-        // for (let i = 0; i < size.length; i++) {
-        //     size[i].checked = false;
-        // }
-        // for (let i = 0; i < eatWhere.length; i++) {
-        //     eatWhere[i].checked = false;
-        // }
-
-        Price = menu.price;
-        document.getElementById('numberTable').value = '';
-
-        // document.getElementById('req').value = '';
-        // document.getElementById('value').innerText = '1';
-        document.getElementById('price').innerText = Price;
-    }
-
-}
+} 
 
 // กดหลับไปหน้าhomeเหมือนเดิม
 function backHomePage() {
     
     const home = document.getElementById('home');
     const addMenu = document.getElementById('addMenu');
+    const detailMenu = document.getElementById('detailMenu');
 
     const spicy = document.getElementsByName('spicy');
     const meat = document.getElementsByName('meat');
@@ -199,6 +110,7 @@ function backHomePage() {
 
     home.classList.remove('hidden');
     addMenu.classList.add('hidden');
+    detailMenu.classList.remove('hidden');
 
     for (let i = 0; i < spicy.length; i++) {
         spicy[i].checked = false;
@@ -230,9 +142,6 @@ function isChecked(name) {
 }
 //เช็คว่าเราติ้ก กรอกถูกมั้ย ทุกอันครบมั้ย
 function checkSelection() {
-    
-    // const backHome = document.getElementById('backHome');
-    // const eatHere = document.getElementById('eatHere');
 
     if (!isChecked('spicy')) {
         alert("กรุณาเลือกระดับความเผ็ด");
@@ -244,52 +153,52 @@ function checkSelection() {
         return;
     }
 
-    if (!isChecked('size')) {
-        alert("กรุณาเลือกปริมาณอาหาร");
-        return;
-    }
-
-    const detailEatHere = document.getElementById('detailEatHere');
-    const isEatHere = !detailEatHere.classList.contains('hidden');
-
-    if (isEatHere) {
-        const numberTable = document.getElementById('numberTable');
-        const table = numberTable.value.trim();
-
-        if (table === '') {
-            alert('กรุณาระบุเลขโต๊ะ');
-            return;
-        }
-
-        if (!/^[1-4]$/.test(table)) {
-            alert('กรุณากรอกเลขโต๊ะให้ถูกต้อง');
-            return;
-        }
-    }
-
-    else{
-        const nameBuy = document.getElementById('nameBuy');
-        const name = nameBuy.value.trim();
-        const phoneBuy = document.getElementById('phoneBuy');
-        const phone = phoneBuy.value.trim();
-
-        if (name === '') {
-            alert('กรุณาระบุชื่อผู้รับอาหาร');
-            return;
-        }
-
-        if (phone === ''){
-            alert('กรุณากรอกเบอร์โทรศัพท์');
-            return;
-        }
-        if (!/^0\d{9}$/.test(phone)) {
-            alert('กรุณากรอกเบอร์โทรศัพท์ให้ถูกต้อง (10หลัก)');
-            return;
-        }
-
-    }
-
     alert("เพิ่มเมนูลงตะกร้าเรียบร้อยแล้ว");
+    // const detailEatHere = document.getElementById('detailEatHere');
+    // const isEatHere = !detailEatHere.classList.contains('hidden');
+
+    // if (isEatHere) {
+    //     const numberTable = document.getElementById('numberTable');
+    //     const table = numberTable.value.trim();
+
+    //     if (table === '') {
+    //         alert('กรุณาระบุเลขโต๊ะ');
+    //         return;
+    //     }
+
+    //     if (!/^[1-4]$/.test(table)) {
+    //         alert('กรุณากรอกเลขโต๊ะให้ถูกต้อง (1-3)');
+    //         return;
+    //     }
+    // }
+
+    // else{
+    //     const nameBuy = document.getElementById('nameBuy');
+    //     const name = nameBuy.value.trim();
+    //     const phoneBuy = document.getElementById('phoneBuy');
+    //     const phone = phoneBuy.value.trim();
+
+    //     if (name === '') {
+    //         alert('กรุณาระบุชื่อผู้รับอาหาร');
+    //         return;
+    //     }
+    //     if(!/^[ก-๙]+$/.test(name)){
+    //         alert('กรุณาระบุชื่อผู้รับอาหารให้ถูกต้อง (เป็นภาษาไทยเท่านั้น)');
+    //         return;
+    //     }
+
+    //     if (phone === ''){
+    //         alert('กรุณากรอกเบอร์โทรศัพท์');
+    //         return;
+    //     }
+    //     if (!/^0\d{9}$/.test(phone)) {
+    //         alert('กรุณากรอกเบอร์โทรศัพท์ให้ถูกต้อง (10หลัก)');
+    //         return;
+    //     }
+
+    // }
+
+    
 
 }
 
