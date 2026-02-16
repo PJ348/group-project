@@ -58,51 +58,148 @@ const menus = [
 ]
 
 // ลิ้งหน้าไปหน้าhome
-function goHomePage(){
-    window.location.href = './index.html' ;
+function goHomePage() {
+    window.location.href = './index.html';
 }
 
+// เช้คว่าทานที่ร้าน หรือ สั่งกลับบ้าน
+function toggleEatMode(mode) {
+
+    const eatHere = document.getElementById('eatHere');
+    const backHome = document.getElementById('backHome');
+
+    const detailBackHome = document.getElementById('detailBackHome');
+    const detailEatHere = document.getElementById('detailEatHere');
+
+    const allStates = ['bg-green-50', 'text-green-500', 'border-green-500',
+        'bg-orange-50', 'text-orange-500', 'border-orange-500',
+        'bg-white', 'hover:bg-gray-50', 'border-gray-300'];
+
+    [eatHere, backHome].forEach(btn => btn.classList.remove(...allStates));
+
+
+
+    if (mode === 'eat-here') {
+
+        eatHere.classList.add('bg-green-50', 'text-green-500', 'border-green-500');
+        backHome.classList.add('bg-white', 'border-gray-300', 'hover:bg-gray-50');
+
+        detailEatHere.classList.remove('hidden');
+        detailBackHome.classList.add('hidden');
+
+        document.getElementById('nameBuy').value = '';
+        document.getElementById('phoneBuy').value = '';
+
+    }
+
+    if (mode === 'back-home') {
+
+        backHome.classList.add('bg-orange-50', 'text-orange-500', 'border-orange-500');
+        eatHere.classList.add('bg-white', 'border-gray-300', 'hover:bg-gray-50');
+
+        detailBackHome.classList.remove('hidden');
+        detailEatHere.classList.add('hidden');
+
+        document.getElementById('numberTable').value = '';
+
+        Price = menu.price;
+        document.getElementById('price').innerText = Price;
+    }
+
+}
+document.addEventListener('DOMContentLoaded', () => {
+    // กำหนดให้ 'eat-here' เป็นค่าเริ่มต้นทันทีที่เปิดหน้านี้
+    toggleEatMode('eat-here');
+});
+
+
 // กดยืนสั่งสั่งรายการอาหาร
-function confirmOrder(groupId){
-    const confirmOrder = document.getElementById('confirmOrder');
-    const orderDone = document.getElementById('orderDone');
-
-    const confirmOrderIcon = document.getElementById('confirmOrderIcon');
-    const orderDoneIcon = document.getElementById('orderDoneIcon');
-
-    const confirmOrderGoHome = document.getElementById('confirmOrderGoHome');
-    const orderDoneGoHome = document.getElementById('orderDoneGoHome');
+function confirmOrder(groupId) {
+    const numberTable = document.getElementById('numberTable');
+    const table = numberTable.value.trim();
+    const nameBuy = document.getElementById('nameBuy');
+    const name = nameBuy.value.trim();
+    const phoneBuy = document.getElementById('phoneBuy');
+    const phone = phoneBuy.value.trim();
 
     const allFoodOrder = document.getElementById('allFoodOrder');
+    const activeItems = allFoodOrder.querySelectorAll('#foodOrder:not(.hidden)');
 
-    if(groupId === 'confirmOrder'){
+    const eatHere = document.getElementById('eatHere').classList.contains('border-green-500');
 
-        if(allFoodOrder.children.length > 0){
-            orderDone.classList.remove('hidden');
-            confirmOrder.classList.add('hidden');
-    
-            orderDoneIcon.classList.remove('hidden');
-            confirmOrderIcon.classList.add('hidden');
-    
-            orderDoneGoHome.classList.remove('hidden');
-            confirmOrderGoHome.classList.add('hidden');
+    if (activeItems.length === 0) {
+        alert('ตะกร้าต้องมีอาหารอย่างน้อย 1 รายการ');
+        return;
+    }
+
+    if (eatHere) {
+
+        if (numberTable.value === '') {
+            alert('กรุณากรอกหมายเลขโต๊ะ');
+            return;
+        }
+        if (!/^[1-3]$/.test(table)) {
+            alert('กรุณากรอกเลขโต๊ะให้ถูกต้อง (1-3)');
+            return;
         }
 
-        else{
-            alert('ตะกร้าต้องมีอาหารอย่างน้อย1รายการ');
+    } else {
+
+        if (name === '') {
+            alert('กรุณาระบุชื่อผู้รับอาหาร');
+            return;
+        }
+        if (!/^[ก-๙]+$/.test(name)) {
+            alert('กรุณาระบุชื่อผู้รับอาหารให้ถูกต้อง (เป็นภาษาไทยเท่านั้น)');
+            return;
+        }
+
+        if (phone === '') {
+            alert('กรุณากรอกเบอร์โทรศัพท์');
+            return;
+        }
+        if (!/^0\d{9}$/.test(phone)) {
+            alert('กรุณากรอกเบอร์โทรศัพท์ให้ถูกต้อง (10หลัก)');
+            return;
         }
 
     }
+
+    document.getElementById('addOrderIcon').classList.add('hidden');
+    document.getElementById('detailPayment').classList.add('hidden');
+    document.getElementById('confirmOrder').classList.add('hidden');
+    document.getElementById('backIcon').classList.add('hidden');
+    document.getElementById('closeIcon').classList.add('hidden');
+    document.getElementById('backHomeIcon').classList.remove('hidden');
+    document.getElementById('confirmOrderDone').classList.remove('hidden');
+
+    document.getElementById('totalCartList').innerText = "0";
+
+    let queue = 9;
+    queue += 1;
+    document.getElementById('queue').innerText = queue;
+    document.getElementById('queueNumber').innerText = "#" + queue;
+
+    if (!eatHere) {
+        document.getElementById('queueInfo').classList.add('border-orange-500' , 'bg-orange-50');
+        
+        document.getElementById('queueType').classList.add('bg-orange-500');
+        document.getElementById('queueType').innerText = "สั่งกลับบ้าน";
+        document.getElementById('queueNumber').classList.add('text-orange-500');
+    }
+    window.scrollTo(0, 0);
+
 }
 
+
 // ลบรายการอาหาร
-function deleteOrder(){
+function deleteOrder() {
     const foodOrder = document.getElementById('foodOrder');
 
-    if(!confirm("คุณต้องการลบรายการนี้ใช่หรือไม่")) //ขึ้นมาให้เลือกว่าจะลบมั้ย ใช้confirm 
+    if (!confirm("คุณต้องการลบรายการนี้ใช่หรือไม่")) //ขึ้นมาให้เลือกว่าจะลบมั้ย ใช้confirm
         return;
 
-    if(foodOrder){
+    if (foodOrder) {
         foodOrder.remove();
     }
 
@@ -112,24 +209,12 @@ function deleteOrder(){
 // คำนวณราคาใหม่
 function bghfdgdfb() {
 
-    let total = 0 ;
-    let list = 0;
-    let cart = 0;
+    document.getElementById('totalPrice').innerText = "-- บาท";
+    document.getElementById('totalList').innerText = "-- รายการ";
+    document.getElementById('allTotalPrice').innerText = "-- บาท";
 
-    const allFoodOrder = document.querySelectorAll('.allFoodOrder'); //เอากล่องที่อยู่ในall food order
+    document.getElementById('totalCartList').innerText = "0";
+    document.getElementById('totalList2').innerText = list + " รายการ";
+    document.getElementById('totalCart2').innerText = cart;
 
-    // allFoodOrder.forEach(item => {
-    //     const price = parseInt(item.getAttribute('data-price')) || 0;
-    //     total += price;
-    // });
-
-    document.getElementById('totalPrice').innerText = total + " บาท" ;
-    document.getElementById('totalList').innerText = list + " รายการ" ;
-    document.getElementById('totalCart').innerText = cart ;
-
-    document.getElementById('totalPrice2').innerText = total + " บาท" ;
-    document.getElementById('totalList2').innerText = list + " รายการ" ;
-    document.getElementById('totalCart2').innerText = cart ;
-    
 }
-
