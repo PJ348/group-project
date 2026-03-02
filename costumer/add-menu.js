@@ -198,25 +198,57 @@ function checkSelection() {
 
     // }
 
-    
 
+    
 }
 
-
+//กดเอากับพิเศษต(ต้องกำหนดตัวแปรที่มันเก็บราคาที่เรากดพิเศษแล้วค่อยเอาไปคำนวณราคารวม)
+//let priceExtra = null+10;
 // กดเพิ่มจำนวนเมนู + ราคารวม
 let count = 1;
 let Price = null;
+let extraPrice = 0;
+
+function updateDisplay() {
+    document.getElementById('value').textContent = count;
+    
+    // คำนวณราคา: (ราคาปกติ + ราคาพิเศษ) * จำนวนจาน
+    let total = (Price + extraPrice) * count;
+    document.getElementById('price').textContent = total + " บาท";
+    
+}
+
+function changeSize() {
+    // เช็คว่า id="extra" โดนเลือกอยู่หรือเปล่า
+    const isExtra = document.getElementById('extra').checked;
+    
+    if (isExtra) {
+        extraPrice = 10; // ถ้าเลือกพิเศษ ให้ค่าบวกเพิ่มเป็น 10
+    } else {
+        extraPrice = 0;  // ถ้าเลือกธรรมดา (หรือไม่ได้เลือกพิเศษ) ค่าบวกเพิ่มกลับเป็น 0
+    }
+    
+    // อัปเดตราคาใหม่ทันทีที่เปลี่ยนไซส์
+    updateDisplay();
+}
 
 function plusMenu() {
-    count += 1;
-    document.getElementById('value').textContent = count;
-    document.getElementById('price').textContent = (Price * count) + " บาท";
+    // count += 1;
+    // document.getElementById('value').textContent = count;
+    // document.getElementById('price').textContent = (Price * count) + " บาท";
+
+    if (count < 10) {
+        count += 1;
+        updateDisplay(); // เรียกใช้ฟังก์ชันกลาง
+    } else {
+        alert("ไม่สามารถเพิ่มจำนวนได้เกิน 10 รายการ");
+    }
 }
 
 function minusMenu() {
     if (count > 1) {
         count -= 1;
-        document.getElementById('value').textContent = count;
-        document.getElementById('price').textContent = (Price * count) + " บาท";
+        updateDisplay();
     }
 }
+

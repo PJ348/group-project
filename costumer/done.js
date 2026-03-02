@@ -72,7 +72,7 @@ function toggleEatMode(mode) {
     const detailEatHere = document.getElementById('detailEatHere');
 
     const allStates = ['bg-green-50', 'text-green-500', 'border-green-500',
-        'bg-orange-50', 'text-orange-500', 'border-orange-500',
+        'bg-orange-50', 'text-orange-400', 'border-orange-400',
         'bg-white', 'hover:bg-gray-50', 'border-gray-300'];
 
     [eatHere, backHome].forEach(btn => btn.classList.remove(...allStates));
@@ -94,7 +94,7 @@ function toggleEatMode(mode) {
 
     if (mode === 'back-home') {
 
-        backHome.classList.add('bg-orange-50', 'text-orange-500', 'border-orange-500');
+        backHome.classList.add('bg-orange-50', 'text-orange-400', 'border-orange-400');
         eatHere.classList.add('bg-white', 'border-gray-300', 'hover:bg-gray-50');
 
         detailBackHome.classList.remove('hidden');
@@ -181,11 +181,8 @@ function confirmOrder(groupId) {
     document.getElementById('queueNumber').innerText = "#" + queue;
 
     if (!eatHere) {
-        document.getElementById('queueInfo').classList.add('border-orange-500' , 'bg-orange-50');
-        
-        document.getElementById('queueType').classList.add('bg-orange-500');
+        document.getElementById('queueType').classList.add('bg-orange-400');
         document.getElementById('queueType').innerText = "สั่งกลับบ้าน";
-        document.getElementById('queueNumber').classList.add('text-orange-500');
     }
     window.scrollTo(0, 0);
 
