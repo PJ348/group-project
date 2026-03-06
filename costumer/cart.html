@@ -12,11 +12,11 @@
     <!-- <script src="https://cdn.tailwindcss.com"></script> -->
 </head>
 
-<body class="bg-neutral-100 min-h-screen">
+<body class="bg-[#F3F4F6] min-h-screen">
 
     <!-- Bar ข้างบนที่เป็นโลโก้ + คิวก่อนหน้่า -->
-    <nav class=" bg-green-500 shadow-lg fixed w-full top-0 z-50">
-        <div class="flex justify-between items-center px-6 py-3 max-w-[1920px] mx-auto">
+    <nav class="bg-[#4CAF50] shadow-lg fixed w-full top-0 z-50">
+        <div class="flex justify-between items-center px-6 py-3 max-w-[1200px] mx-auto">
 
             <!-- ส่วนโลโก้ ฝั่งซ้าย -->
             <div class="flex flex-row items-center space-x-2">
@@ -29,7 +29,7 @@
 
             <div class="flex gap-4">
                 <!-- ส่วนคิวที่รอ ตรงกลาง -->
-                <div class="flex justify-center items-center bg-green-600 p-1.5 rounded-full">
+                <div class="flex justify-center items-center bg-black/20 p-1.5 rounded-full">
                     <p class="text-white text-lg font-medium mx-2 max-[390px]:hidden">จำนวนคิวทั้งหมด:</p>
                     <span id="queue"
                         class="bg-[radial-gradient(circle,_var(--color-orange-400)_40%,_var(--color-orange-200)_100%)] inline-flex items-center justify-center text-white font-bold rounded-full w-8 h-8">9</span>
@@ -37,22 +37,18 @@
 
                 <!-- ส่วนตะกร้าที่อยู่ผั่งขวา -->
                 <div
-                    class="flex justify-center items-center bg-orange-400 px-5 rounded-full relative max-sm:hidden cursor-pointer">
+                    class="flex justify-center items-center bg-[#FF9800] px-5 rounded-full relative max-sm:hidden cursor-pointer">
                     <span id="totalCartList"
-                        class="bg-white border-2 border-green-500 text-sm font-bold flex justify-center items-center w-7 h-7 rounded-full absolute -top-2 -right-2">1</span>
+                        class="bg-white border-2 border-[#4CAF50] text-sm font-bold flex justify-center items-center w-7 h-7 rounded-full absolute -top-2 -right-2">1</span>
                     <i class="fa-solid fa-bag-shopping text-white text-xl "></i>
-                    <!-- <p class="text-white text-lg font-semibold px-2">ตะกร้าของฉัน</p> -->
                 </div>
-
-                
             </div>
-
         </div>
     </nav>
 
 
     <!-- ส่วนรายการอาหารที่สั่ง -->
-    <main class="pt-28 max-w-[1920px] mx-auto">
+    <main class="pt-28 max-w-[1200px] mx-auto">
         <!-- ส่วนกลับไปหน้าเมนู -->
         <div class="px-6 flex items-center space-x-2">
             <div id="backIcon" class="bg-white p-2 rounded-full w-10 h-10 flex justify-center items-center shadow-lg"
@@ -62,42 +58,42 @@
             <p class="text-lg font-bold">รายการอาหาร</p>
         </div>
 
-        <div class="p-6 flex flex-row w-full max-sm:pb-[240px] sm:space-x-4">
+        <div class="p-6 flex flex-col sm:flex-row max-sm:pb-[240px] sm:space-x-4">
 
             <!-- การ์ดอาหารที่สั่ง -->
-            <div class="flex flex-col space-y-16 w-full">
+            <div class="flex flex-col space-y-16 w-full sm:w-[55%]">
                 <div id="allFoodOrder">
 
-                    <div class="bg-neutral-400 rounded-3xl w-full">
+                    <div class="bg-[#AAABAC] rounded-3xl w-full">
 
                         <div id="foodOrder" class="bg-white rounded-3xl shadow-lg ml-2.5 py-2 px-6 flex gap-6"
                             data-price='55'>
                             <p
-                                class="text-6xl font-bold text-gray-300 flex justify-center items-center p-2 max-sm:text-xl max-[1025px]:text-3xl">
+                                class="text-5xl font-extrabold text-[#D9D9D9] flex justify-center items-center p-2 max-sm:text-xl max-[1025px]:text-3xl">
                                 01</p>
                             <img src="./img/food-menu1.jpg" alt="food"
                                 class="w-28 h-28 object-cover rounded-2xl max-[985px]:hidden">
 
                             <div class="flex-1">
-                                <p class="text-lg font-bold mt-3 line-clamp-2">ข้าวห่อหมกทะเลไข่ข้น</p>
+                                <p class="text-lg font-bold line-clamp-2">ข้าวห่อหมกทะเลไข่ข้น</p>
                                 <div class="flex flex-col gap-1 mt-1 ml-2">
                                     <div class="flex items-center gap-2">
-                                        <i class="fa-solid fa-star text-orange-400 text-xs flex"></i>
-                                        <span class="text-sm font-normal text-orange-400 line-clamp-1">ธรรมดา</span>
+                                        <i class="fa-solid fa-star text-[#FF9800] text-xs flex"></i>
+                                        <span class="text-sm font-normal text-[#FF9800] line-clamp-1">ธรรมดา</span>
                                     </div>
                                     <div class="flex items-center gap-2">
-                                        <i class="fa-solid fa-circle-plus text-green-500 text-xs flex"></i>
-                                        <span class="text-sm font-normal text-green-500 line-clamp-1">เพิ่มหมูสับ</span>
+                                        <i class="fa-solid fa-circle-plus text-[#4CAF50] text-xs flex"></i>
+                                        <span class="text-sm font-normal text-[#4CAF50] line-clamp-1">เพิ่มหมูสับ</span>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="flex flex-row items-center p-2 gap-4 max-[1025px]:relative">
-                                <p class="text-xl font-bold text-orange-400 max-[1025px]:mt-auto">55
-                                    <span class="text-xl font-medium text-gray-400">บาท</span>
+                                <p class="text-xl font-bold text-[#FF9800] max-[1025px]:mt-auto">55
+                                    <span class="text-xl font-medium text-black/30">บาท</span>
                                 </p>
                                 <span id="closeIcon"
-                                    class="bg-red-600 text-white rounded-full flex justify-center items-center w-6 h-6 cursor-pointer max-[1025px]:absolute top-2 right-1"
+                                    class="bg-[#D84315] text-white rounded-full flex justify-center items-center w-6 h-6 cursor-pointer max-[1025px]:absolute top-2 right-1"
                                     onclick="deleteOrder(this)">
                                     <i class="fa-solid fa-xmark text-sm"></i>
                                 </span>
@@ -110,7 +106,7 @@
                 <!-- เพิ่มรายการ -->
                 <button id="addOrderIcon" class="flex flex-col items-center gap-2 mt-6 w-fit mx-auto">
                     <span
-                        class="bg-gray-300 w-12 h-12 rounded-full flex justify-center items-center shadow-lg hover:bg-gray-400">
+                        class="bg-[#D9D9D9] w-12 h-12 rounded-full flex justify-center items-center shadow-lg hover:bg-gray-400">
                         <i class="fa-solid fa-plus text-sm" onclick="goHomePage()"></i>
                     </span>
                     <p class="text-md">เพิ่มรายการ</p>
@@ -127,23 +123,24 @@
 
 
             <!-- สรุปการ์ดฝั่งขวา -->
-            <div class="bg-white rounded-3xl shadow-lg pb-10 w-4/5 max-sm:hidden">
-                <div id="detailPayment" class="px-16 py-10">
+            <div class="bg-white rounded-3xl shadow-lg pb-10 w-full sm:w-[45%] max-sm:hidden">
+
+                <div id="detailPayment" class="px-12 py-8">
                     <div class="flex flex-col gap-5">
-                        <p class="flex justify-center text-xl font-bold ">ชำระเงิน</p>
+                        <p class="flex justify-center text-2xl font-bold pb-4">ชำระเงิน</p>
                         <div class="flex justify-between text-gray-500">
-                            <p class="text-lg font-semibold">จำนวนรายการ</p>
-                            <p id="totalList" class="text-lg font-semibold">1 รายการ</p>
+                            <p class="text-lg font-semibold text-black/60">จำนวนรายการ</p>
+                            <p id="totalList" class="text-lg font-semibold text-black/60">1 รายการ</p>
                         </div>
 
                         <div class="flex justify-between">
-                            <p class="text-lg font-semibold text-gray-500">ราคารวม</p>
-                            <p id="totalPrice" class="text-lg font-semibold text-gray-500">55 บาท</p>
+                            <p class="text-lg font-semibold text-black/60">ราคารวม</p>
+                            <p id="totalPrice" class="text-lg font-semibold text-black/60">55 บาท</p>
                         </div>
 
                         <div class="flex justify-between pb-8">
                             <p class="text-2xl font-semibold">ราคาสุทธิ</p>
-                            <p id="allTotalPrice" class="text-2xl font-extrabold text-orange-400">55 บาท</p>
+                            <p id="allTotalPrice" class="text-2xl font-extrabold text-[#FF9800]">55 บาท</p>
                         </div>
                     </div>
 
@@ -151,69 +148,72 @@
 
                     <!-- เลือกกลับบ้านหรือทานที่ร้าน -->
                     <div class="pt-8 pb-2">
-                        <p class="text-xl font-medium">ตัวเลือกการสั่ง</p>
+                        <p class="text-xl font-bold">ตัวเลือกการสั่ง</p>
                         <div class="flex gap-4 justify-center pt-6">
 
                             <div id="eatHere"
-                                class="flex flex-col items-center justify-center gap-2 py-8 px-20 border-2 border-green-500 bg-green-50 rounded-3xl cursor-pointer"
+                                class="flex-1 flex flex-col items-center justify-center gap-2 py-8 px-4 border-2 rounded-3xl cursor-pointer"
                                 onclick="toggleEatMode('eat-here')">
                                 <i class="fa-solid fa-couch text-6xl "></i>
-                                <p class="text-md text-black font-medium">ทานที่ร้าน</p>
+                                <p class="text-md text-black font-semibold">ทานที่ร้าน</p>
                             </div>
 
                             <div id="backHome"
-                                class="flex flex-col items-center justify-center gap-2 py-8 px-20 border-2 border-gray-300 rounded-3xl hover:bg-gray-50 cursor-pointer"
+                                class="flex-1 flex flex-col items-center justify-center gap-2 py-8 px-4 border-2 rounded-3xl hover:bg-gray-50 cursor-pointer"
                                 onclick="toggleEatMode('back-home')">
                                 <i class="fa-solid fa-bag-shopping text-6xl"></i>
-                                <p class="text-md text-black font-medium">สั่งกลับบ้าน</p>
+                                <p class="text-md text-black font-semibold">สั่งกลับบ้าน</p>
                             </div>
                         </div>
                     </div>
 
                     <div class="py-6">
                         <!-- เบอร์โต๊ะ -->
-                        <div class="space-y-2" id="detailEatHere">
-                            <p class="pb-1 font-medium">เลขโต๊ะ</p>
-                            <input type="text" placeholder="ระบุเลขโต๊ะ" id="numberTable"
-                                class="border border-gray-300 rounded-xl p-2 w-full" />
+                        <div class="#" id="detailEatHere">
+                            <p class="pb-1 text-lg font-semibold">เลขโต๊ะ</p>
+                            <input type="text" placeholder="ระบุเลขโต๊ะ(1-4)" id="numberTable"
+                                class="border border-gray-300 rounded-xl px-4 py-3 w-full" />
                         </div>
                         <!-- กลับบ้าน -->
-                        <div class="hidden space-y-2" id="detailBackHome">
-                            <p class="pb-1 font-medium">ชื่อ</p>
+                        <div class="hidden" id="detailBackHome">
+                            <p class="pb-1 text-lg font-semibold">ชื่อ</p>
                             <input type="text" placeholder="ชื่อผู้รับอาหาร" id="nameBuy"
-                                class="border border-gray-300 rounded-xl p-2 w-full" />
-                            <p class="pb-1 font-medium">เบอร์โทรศัพท์</p>
+                                class="border border-gray-300 rounded-xl px-4 py-3 w-full" />
+                            <p class="pb-1 pt-4 text-lg font-semibold">เบอร์โทรศัพท์</p>
                             <input type="tel" placeholder="เบอร์โทรศัพท์ผู้รับอาหาร" id="phoneBuy"
-                                class="border border-gray-300 rounded-xl p-2 w-full" />
+                                class="border border-gray-300 rounded-xl px-4 py-3 w-full" />
                         </div>
 
                     </div>
                 </div>
 
                 <div id="confirmOrder"
-                    class="bg-green-500 rounded-full mx-8 py-3 shadow-lg flex items-center hover:bg-green-700 transition cursor-pointer"
+                    class="bg-[#4CAF50] rounded-full mx-8 py-3 shadow-lg relative flex justify-center items-center hover:bg-green-700 transition cursor-pointer"
                     onclick="confirmOrder('confirmOrder')">
-                    <p class="text-white text-lg font-semibold mx-auto">ยืนยันการสั่งอาหาร</p>
-                    <i class="fa-solid fa-chevron-right text-white mr-4"></i>
+                    <p class="text-white text-lg font-semibold">ยืนยันการสั่งอาหาร</p>
+                    <i class="fa-solid fa-chevron-right text-white absolute right-6"></i>
                 </div>
-
 
                 <div id="confirmOrderDone" class=" hidden flex flex-col gap-6 mx-16 py-10">
                     <div class="flex flex-col items-center gap-4">
-                        <i class="fa-solid fa-circle-check text-green-500 text-6xl"></i>
-                        <p class="text-xl font-semibold">สั่งอาหารเรียบร้อย</p>
+                        <i class="fa-solid fa-circle-check text-[#4CAF50] text-6xl"></i>
+                        <p class="text-2xl font-bold">สั่งอาหารเรียบร้อย</p>
                     </div>
 
-                    <div id="queueInfo"
-                        class="flex flex-col items-center rounded-3xl py-8 gap-8 bg-gray-50">
-                        <p class="text-xl font-semibold">หมายเลขคิวของท่าน</p>
-                        <p id="queueNumber" class="text-7xl font-bold"></p>
-                        <p id="queueType" class="bg-green-500 text-white text-base w-fit rounded-full px-6">ทานที่ร้าน
+                    <div id="queueInfo" class="flex flex-col items-center rounded-3xl py-8 gap-8 bg-[#F2F2F2]">
+                        <p class="text-xl font-extrabold">หมายเลขคิวของท่าน</p>
+                        <p id="queueNumber" class="text-7xl font-extrabold"></p>
+                        <p id="queueType" class="bg-[#4CAF50] text-white text-lg font-extrabold w-fit rounded-full px-6 py-1.5">ทานที่ร้าน
                         </p>
                     </div>
 
-                    <div class="flex justify-center items-center py-8 gap-4 bg-green-50 rounded-3xl">
-                        <p class="text-green-500 text-xl font-semibold">รออีก <span class="text-3xl font-semibold">2</span> คิว</p>
+                    <div class="flex justify-center items-center py-6 gap-4 bg-[#EDF7ED] rounded-3xl">
+                        <p class="text-[#4CAF50] text-xl font-extrabold">รออีก <span
+                                class="text-3xl font-extrabold">2</span> คิว</p>
+                    </div>
+
+                    <div class="flex justify-center">
+                        <p class="text-lg font-semibold text-[#FF9800]">กรุณาชำระเงินที่หน้าเคาน์เตอร์</p>
                     </div>
                 </div>
             </div>
@@ -232,11 +232,11 @@
 
         <div class="flex justify-between w-64 mx-auto text-md font-medium pb-2">
             <p class="text-md">รวม</p>
-            <p id="totalPrice2" class="text-md text-orange-400">55 บาท</p>
+            <p id="totalPrice2" class="text-md text-[#FF9800]">55 บาท</p>
         </div>
 
         <div id="confirmOrder"
-            class="bg-green-500 rounded-full mx-6 py-2 shadow-lg flex items-center hover:bg-green-700 transition cursor-pointer"
+            class="bg-[#4CAF50] rounded-full mx-6 py-2 shadow-lg flex items-center hover:bg-green-700 transition cursor-pointer"
             onclick="confirmOrder('confirmOrder')">
             <p class="text-white text-lg font-semibold mx-auto">ยืนยันการสั่งอาหาร</p>
             <i class="fa-solid fa-chevron-right text-white mr-4"></i>
