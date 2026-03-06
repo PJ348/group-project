@@ -71,18 +71,17 @@ function toggleEatMode(mode) {
     const detailBackHome = document.getElementById('detailBackHome');
     const detailEatHere = document.getElementById('detailEatHere');
 
-    const allStates = ['bg-green-50', 'text-green-500', 'border-green-500',
-        'bg-orange-50', 'text-orange-400', 'border-orange-400',
-        'bg-white', 'hover:bg-gray-50', 'border-gray-300'];
+    const allStates = ['bg-[#EDF7ED]', 'text-[#4CAF50]', 'border-[#4CAF50]',
+        'bg-[#FFF5E5]', 'text-[#FF9800]', 'border-[#FF9800]',
+        'bg-white', 'hover:bg-gray-50', 'border-[#B3B3B3]'];
 
     [eatHere, backHome].forEach(btn => btn.classList.remove(...allStates));
 
 
-
     if (mode === 'eat-here') {
 
-        eatHere.classList.add('bg-green-50', 'text-green-500', 'border-green-500');
-        backHome.classList.add('bg-white', 'border-gray-300', 'hover:bg-gray-50');
+        eatHere.classList.add('bg-[#EDF7ED]', 'text-[#4CAF50]', 'border-[#4CAF50]');
+        backHome.classList.add('bg-white', 'border-[#B3B3B3]', 'hover:bg-gray-50');
 
         detailEatHere.classList.remove('hidden');
         detailBackHome.classList.add('hidden');
@@ -94,8 +93,8 @@ function toggleEatMode(mode) {
 
     if (mode === 'back-home') {
 
-        backHome.classList.add('bg-orange-50', 'text-orange-400', 'border-orange-400');
-        eatHere.classList.add('bg-white', 'border-gray-300', 'hover:bg-gray-50');
+        backHome.classList.add('bg-[#FFF5E5]', 'text-[#FF9800]', 'border-[#FF9800]');
+        eatHere.classList.add('bg-white', 'border-[#B3B3B3]', 'hover:bg-gray-50');
 
         detailBackHome.classList.remove('hidden');
         detailEatHere.classList.add('hidden');
@@ -125,7 +124,7 @@ function confirmOrder(groupId) {
     const allFoodOrder = document.getElementById('allFoodOrder');
     const activeItems = allFoodOrder.querySelectorAll('#foodOrder:not(.hidden)');
 
-    const eatHere = document.getElementById('eatHere').classList.contains('border-green-500');
+    const eatHere = document.getElementById('eatHere').classList.contains('border-[#4CAF50]');
 
     if (activeItems.length === 0) {
         alert('ตะกร้าต้องมีอาหารอย่างน้อย 1 รายการ');
@@ -138,8 +137,8 @@ function confirmOrder(groupId) {
             alert('กรุณากรอกหมายเลขโต๊ะ');
             return;
         }
-        if (!/^[1-3]$/.test(table)) {
-            alert('กรุณากรอกเลขโต๊ะให้ถูกต้อง (1-3)');
+        if (!/^[1-4]$/.test(table)) {
+            alert('กรุณากรอกเลขโต๊ะให้ถูกต้อง (1-4)');
             return;
         }
 
@@ -181,7 +180,7 @@ function confirmOrder(groupId) {
     document.getElementById('queueNumber').innerText = "#" + queue;
 
     if (!eatHere) {
-        document.getElementById('queueType').classList.add('bg-orange-400');
+        document.getElementById('queueType').classList.add('bg-[#FF9800]');
         document.getElementById('queueType').innerText = "สั่งกลับบ้าน";
     }
     window.scrollTo(0, 0);

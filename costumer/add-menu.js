@@ -2,7 +2,7 @@
 const menus = [
     {
         id: 0,
-        name: 'ข้าวห่อหมกทะเลไข่ข้น',
+        name: 'ข้าวห่อหมกทะเล',
         price: 55,
         img: './img/food-menu1.jpg'
     },
@@ -68,7 +68,7 @@ function addMenuPage(groupId) {
     const addMenu = document.getElementById('addMenu');
     const detailMenu = document.getElementById('detailMenu')
 
-    let soldOut = [1, 4, 6];
+    let soldOut = [1, 2, 3, 5];
     let menu = null;
 
     if (soldOut.includes(groupId)) {
@@ -94,6 +94,7 @@ function addMenuPage(groupId) {
     document.getElementById('addMenuImg').src = menu.img;
     document.getElementById('price').innerText = menu.price + ' บาท';
 
+    document.getElementById('normal').checked = true;
 } 
 
 // กดหลับไปหน้าhomeเหมือนเดิม
@@ -106,7 +107,7 @@ function backHomePage() {
     const spicy = document.getElementsByName('spicy');
     const meat = document.getElementsByName('meat');
     const size = document.getElementsByName('size');
-    const eatWhere = document.getElementsByName('eat-where');
+    const ricesize = document.getElementsByName('ricesize');
 
     home.classList.remove('hidden');
     addMenu.classList.add('hidden');
@@ -121,20 +122,13 @@ function backHomePage() {
     for (let i = 0; i < size.length; i++) {
         size[i].checked = false;
     }
-    for (let i = 0; i < eatWhere.length; i++) {
-        eatWhere[i].checked = false;
+    for (let i = 0; i < ricesize.length; i++) {
+        ricesize[i].checked = false;
     }
-
-    document.getElementById('nameBuy').value = '';
-    document.getElementById('phoneBuy').value = '';
-    document.getElementById('numberTable').value = '';
-    document.getElementById('req').value = '';
-
-    document.getElementById('value').innerText = '1';
-
 
     window.scrollTo(0, 0);
 }
+
 
 // เช็คว่ากดเลือกระดับต่างๆครบมั้ย
 function isChecked(name) {
@@ -154,65 +148,17 @@ function checkSelection() {
     }
 
     alert("เพิ่มเมนูลงตะกร้าเรียบร้อยแล้ว");
-    // const detailEatHere = document.getElementById('detailEatHere');
-    // const isEatHere = !detailEatHere.classList.contains('hidden');
-
-    // if (isEatHere) {
-    //     const numberTable = document.getElementById('numberTable');
-    //     const table = numberTable.value.trim();
-
-    //     if (table === '') {
-    //         alert('กรุณาระบุเลขโต๊ะ');
-    //         return;
-    //     }
-
-    //     if (!/^[1-4]$/.test(table)) {
-    //         alert('กรุณากรอกเลขโต๊ะให้ถูกต้อง (1-3)');
-    //         return;
-    //     }
-    // }
-
-    // else{
-    //     const nameBuy = document.getElementById('nameBuy');
-    //     const name = nameBuy.value.trim();
-    //     const phoneBuy = document.getElementById('phoneBuy');
-    //     const phone = phoneBuy.value.trim();
-
-    //     if (name === '') {
-    //         alert('กรุณาระบุชื่อผู้รับอาหาร');
-    //         return;
-    //     }
-    //     if(!/^[ก-๙]+$/.test(name)){
-    //         alert('กรุณาระบุชื่อผู้รับอาหารให้ถูกต้อง (เป็นภาษาไทยเท่านั้น)');
-    //         return;
-    //     }
-
-    //     if (phone === ''){
-    //         alert('กรุณากรอกเบอร์โทรศัพท์');
-    //         return;
-    //     }
-    //     if (!/^0\d{9}$/.test(phone)) {
-    //         alert('กรุณากรอกเบอร์โทรศัพท์ให้ถูกต้อง (10หลัก)');
-    //         return;
-    //     }
-
-    // }
-
-
+    
     
 }
 
 //กดเอากับพิเศษต(ต้องกำหนดตัวแปรที่มันเก็บราคาที่เรากดพิเศษแล้วค่อยเอาไปคำนวณราคารวม)
-//let priceExtra = null+10;
-// กดเพิ่มจำนวนเมนู + ราคารวม
 let count = 1;
-let Price = null;
-let extraPrice = 0;
 
 function updateDisplay() {
     document.getElementById('value').textContent = count;
     
-    // คำนวณราคา: (ราคาปกติ + ราคาพิเศษ) * จำนวนจาน
+    // คำนวณราคา (ราคาปกติ + ราคาพิเศษ) * จำนวนจาน
     let total = (Price + extraPrice) * count;
     document.getElementById('price').textContent = total + " บาท";
     
@@ -223,23 +169,20 @@ function changeSize() {
     const isExtra = document.getElementById('extra').checked;
     
     if (isExtra) {
-        extraPrice = 10; // ถ้าเลือกพิเศษ ให้ค่าบวกเพิ่มเป็น 10
+        extraPrice = 10; 
+
     } else {
-        extraPrice = 0;  // ถ้าเลือกธรรมดา (หรือไม่ได้เลือกพิเศษ) ค่าบวกเพิ่มกลับเป็น 0
+        extraPrice = 0;  
     }
     
-    // อัปเดตราคาใหม่ทันทีที่เปลี่ยนไซส์
     updateDisplay();
 }
 
 function plusMenu() {
-    // count += 1;
-    // document.getElementById('value').textContent = count;
-    // document.getElementById('price').textContent = (Price * count) + " บาท";
-
     if (count < 10) {
         count += 1;
-        updateDisplay(); // เรียกใช้ฟังก์ชันกลาง
+        updateDisplay();
+
     } else {
         alert("ไม่สามารถเพิ่มจำนวนได้เกิน 10 รายการ");
     }
