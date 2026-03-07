@@ -9,6 +9,7 @@
     <link href="./src/output.css" rel="stylesheet">
     <script src="./done.js"></script>
     <script src="./cart.js"></script>
+    <link rel="icon" type="image/png" href="./img/logo-new-2.png">
     <!-- <script src="https://cdn.tailwindcss.com"></script> -->
 </head>
 
@@ -75,7 +76,7 @@
                                 class="w-28 h-28 object-cover rounded-2xl max-[985px]:hidden">
 
                             <div class="flex-1">
-                                <p class="text-lg font-bold line-clamp-2">ข้าวห่อหมกทะเลไข่ข้น</p>
+                                <p class="text-lg font-bold line-clamp-2">ข้าวห่อหมกทะเล</p>
                                 <div class="flex flex-col gap-1 mt-1 ml-2">
                                     <div class="flex items-center gap-2">
                                         <i class="fa-solid fa-star text-[#FF9800] text-xs flex"></i>
@@ -242,6 +243,48 @@
             <i class="fa-solid fa-chevron-right text-white mr-4"></i>
         </div>
     </div>
+
+    <!-- alert แจ้งเตือนทุกอย่าง ระบุโต๊ะ ชื่อ เบอร์โทรศัพท์ จำนวนของในตะกร้า-->
+    <div id="customAlert" class="hidden fixed inset-0 bg-black/50 z-[100] flex justify-center items-center px-4 transition-opacity">
+        <div class="bg-white rounded-3xl shadow-2xl p-8 w-full max-w-sm text-center transform scale-100">
+            
+            <div class="mx-auto flex items-center justify-center h-20 w-20 rounded-full bg-red-100 mb-4">
+                <i class="fa-solid fa-triangle-exclamation text-4xl text-[#D84315]"></i>
+            </div>
+            
+            <h3 class="text-2xl font-bold text-gray-900 mb-2">แจ้งเตือน</h3>
+            <p id="alertMessage" class="text-gray-500 text-lg font-medium mb-8"></p>
+            
+            <button onclick="closeAlert()" class="w-full bg-[#FF9800] text-white text-xl font-bold rounded-full py-3 hover:bg-orange-600 transition shadow-md">
+                ตกลง
+            </button>
+            
+        </div>
+    </div>
+
+    <!-- alertยินยันลบรายการอาหาร -->
+    <div id="customConfirm" class="hidden fixed inset-0 bg-black/50 z-[100] flex justify-center items-center px-4 transition-opacity">
+        <div class="bg-white rounded-3xl shadow-2xl p-8 w-full max-w-sm text-center transform scale-100">
+            
+            <div class="mx-auto flex items-center justify-center h-20 w-20 rounded-full bg-red-100 mb-4">
+                <i class="fa-solid fa-trash-can text-4xl text-[#D84315]"></i>
+            </div>
+            
+            <h3 class="text-2xl font-bold text-gray-900 mb-2">ยืนยันการลบ</h3>
+            <p class="text-gray-500 text-lg font-medium mb-8">คุณต้องการลบรายการนี้ใช่หรือไม่?</p>
+            
+            <div class="flex gap-4">
+                <button onclick="closeConfirm()" class="w-1/2 bg-gray-200 text-gray-700 text-xl font-bold rounded-full py-3 hover:bg-gray-300 transition shadow-md">
+                    ยกเลิก
+                </button>
+                <button onclick="proceedDelete()" class="w-1/2 bg-[#D84315] text-white text-xl font-bold rounded-full py-3 hover:bg-red-600 transition shadow-md">
+                    ลบรายการ
+                </button>
+            </div>
+            
+        </div>
+    </div>
+
 
 </body>
 
