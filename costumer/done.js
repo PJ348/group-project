@@ -112,6 +112,16 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+// การ์ดแจ้งเตือน
+function showAlert(message) {
+    document.getElementById('alertMessage').innerText = message;
+    document.getElementById('customAlert').classList.remove('hidden');
+}
+// กดปุ่ม ตกลง เพื่อปิดการ์ด
+function closeAlert() {
+    document.getElementById('customAlert').classList.add('hidden');
+}
+
 // กดยืนสั่งสั่งรายการอาหาร
 function confirmOrder(groupId) {
     const numberTable = document.getElementById('numberTable');
@@ -127,41 +137,42 @@ function confirmOrder(groupId) {
     const eatHere = document.getElementById('eatHere').classList.contains('border-[#4CAF50]');
 
     if (activeItems.length === 0) {
-        alert('ตะกร้าต้องมีอาหารอย่างน้อย 1 รายการ');
+        showAlert('ตะกร้าต้องมีอาหารอย่างน้อย 1 รายการ');
         return;
     }
 
     if (eatHere) {
 
         if (numberTable.value === '') {
-            alert('กรุณากรอกหมายเลขโต๊ะ');
+            showAlert('กรุณาระบุหมายเลขโต๊ะ');
             return;
         }
         if (!/^[1-4]$/.test(table)) {
-            alert('กรุณากรอกเลขโต๊ะให้ถูกต้อง (1-4)');
+            showAlert('กรุณาระหุหมายเลขโต๊ะให้ถูกต้อง (1-4)');
             return;
         }
 
     } else {
 
         if (name === '') {
-            alert('กรุณาระบุชื่อผู้รับอาหาร');
+            showAlert('กรุณาระบุชื่อผู้รับอาหาร');
             return;
         }
         if (!/^[ก-๙]+$/.test(name)) {
-            alert('กรุณาระบุชื่อผู้รับอาหารให้ถูกต้อง (เป็นภาษาไทยเท่านั้น)');
+            showAlert('กรุณาระบุชื่อผู้รับอาหารให้ถูกต้อง (เป็นภาษาไทยเท่านั้น)');
             return;
         }
 
         if (phone === '') {
-            alert('กรุณากรอกเบอร์โทรศัพท์');
+            showAlert('กรุณาระบุเบอร์โทรศัพท์');
             return;
         }
         if (!/^0\d{9}$/.test(phone)) {
-            alert('กรุณากรอกเบอร์โทรศัพท์ให้ถูกต้อง (10หลัก)');
+            showAlert('กรุณาระบุเบอร์โทรศัพท์ให้ถูกต้อง (10หลัก)');
             return;
         }
 
+        
     }
 
     document.getElementById('addOrderIcon').classList.add('hidden');
@@ -187,30 +198,41 @@ function confirmOrder(groupId) {
 
 }
 
-
 // ลบรายการอาหาร
-function deleteOrder() {
-    const foodOrder = document.getElementById('foodOrder');
+let itemToDelete = null; // ตัวแปรสำหรับจำว่าลูกค้าจะลบเมนูไหน
+function deleteOrder(element) {
+    itemToDelete = element.closest('#foodOrder');
+    document.getElementById('customConfirm').classList.remove('hidden');
+}
 
-    if (!confirm("คุณต้องการลบรายการนี้ใช่หรือไม่")) //ขึ้นมาให้เลือกว่าจะลบมั้ย ใช้confirm
-        return;
+function closeConfirm() { // ยกเลิกการลบรายการอาหาร
+    document.getElementById('customConfirm').classList.add('hidden');
+    itemToDelete = null; // ล้างความจำทิ้ง
+}
 
-    if (foodOrder) {
-        foodOrder.remove();
+function proceedDelete() { // ยืนยยันการลบรายการอาหาร
+    if (itemToDelete) {
+        itemToDelete.remove();
     }
-
-    bghfdgdfb();
+    
+    closeConfirm();
+    updateCartTotal();
 }
 
 // คำนวณราคาใหม่
-function bghfdgdfb() {
+function updateCartTotal() {
 
-    document.getElementById('totalPrice').innerText = "-- บาท";
-    document.getElementById('totalList').innerText = "-- รายการ";
-    document.getElementById('allTotalPrice').innerText = "-- บาท";
+    const activeItems = allFoodOrder.querySelectorAll('#foodOrder:not(.hidden)');
+    if (activeItems.length === 0) {
+        document.getElementById('totalPrice').innerText = "-- บาท";
+        document.getElementById('totalList').innerText = "-- รายการ";
+        document.getElementById('allTotalPrice').innerText = "-- บาท";
 
-    document.getElementById('totalCartList').innerText = "0";
-    document.getElementById('totalList2').innerText = list + " รายการ";
-    document.getElementById('totalCart2').innerText = cart;
+        document.getElementById('totalCartList').innerText = "0";
+        document.getElementById('totalList2').innerText = list + " รายการ";
+        document.getElementById('totalCart2').innerText = cart;
+    } else {
+
+    }
 
 }

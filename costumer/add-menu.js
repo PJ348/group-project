@@ -130,6 +130,26 @@ function backHomePage() {
 }
 
 
+// การ์ดเพิ่มเข้าตะกร้าเรียบร้อบ
+function showSuccessAlert(message) {
+    document.getElementById('successAlertMessage').innerText = message;
+    document.getElementById('successAlert').classList.remove('hidden');
+}
+function closeshowSuccessAlert() {
+    document.getElementById('successAlert').classList.add('hidden');
+}
+
+
+// การ์ดแจ้งเตือนเวลาเลือกไม่ครบ
+function showAlert(message) {
+    document.getElementById('alertMessage').innerText = message;
+    document.getElementById('customAlert').classList.remove('hidden');
+}
+// กดปุ่ม ตกลง เพื่อปิดการ์ด
+function closeAlert() {
+    document.getElementById('customAlert').classList.add('hidden');
+}
+
 // เช็คว่ากดเลือกระดับต่างๆครบมั้ย
 function isChecked(name) {
     return document.querySelector(`input[name="${name}"]:checked`);
@@ -138,23 +158,24 @@ function isChecked(name) {
 function checkSelection() {
 
     if (!isChecked('spicy')) {
-        alert("กรุณาเลือกระดับความเผ็ด");
+        showAlert("กรุณาเลือกระดับความเผ็ด");
         return;
     }
 
     if (!isChecked('meat')) {
-        alert("กรุณาเลือกประเภทเนื้อสัตว์");
+        showAlert("กรุณาเลือกประเภทเนื้อสัตว์");
         return;
     }
 
-    alert("เพิ่มเมนูลงตะกร้าเรียบร้อยแล้ว");
-    
-    
+    showSuccessAlert("เพิ่มเมนูลงตะกร้าเรียบร้อยแล้ว"); 
+    setTimeout(function() {
+        closeshowSuccessAlert();
+        backHomePage();
+    }, 1500);
 }
 
 //กดเอากับพิเศษต(ต้องกำหนดตัวแปรที่มันเก็บราคาที่เรากดพิเศษแล้วค่อยเอาไปคำนวณราคารวม)
 let count = 1;
-
 function updateDisplay() {
     document.getElementById('value').textContent = count;
     
