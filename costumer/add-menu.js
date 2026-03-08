@@ -72,7 +72,7 @@ function addMenuPage(groupId) {
     let menu = null;
 
     if (soldOut.includes(groupId)) {
-        alert('อาหารหมด');
+        console.log('อาหารหมด');
         return;
     }
 
@@ -167,7 +167,7 @@ function checkSelection() {
         return;
     }
 
-    showSuccessAlert("เพิ่มเมนูลงตะกร้าเรียบร้อยแล้ว"); 
+    showSuccessAlert("เพิ่มรายการอาหารลงตะกร้าเรียบร้อยแล้ว"); 
     setTimeout(function() {
         closeshowSuccessAlert();
         backHomePage();
@@ -205,7 +205,7 @@ function plusMenu() {
         updateDisplay();
 
     } else {
-        alert("ไม่สามารถเพิ่มจำนวนได้เกิน 10 รายการ");
+        showAlert("ไม่สามารถเพิ่มจำนวนได้เกิน 10 รายการ");
     }
 }
 
