@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>รายการออเดอร์</title>
-    <link href="/src/output.css" rel="stylesheet">
+    <link href="/owner/src/output.css" rel="stylesheet">
     <link rel="icon" href="/owner/img/favicon.ico">
     <script src="https://kit.fontawesome.com/b118461cf7.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
@@ -64,6 +64,32 @@
             <main class="gap-5 w-full select-none py-5">
 
                 <section id="cardSlider" class="flex flex-col gap-8 w-[680px] h-[550px] overflow-y-hidden no-scrollbar">
+                    <!--card 2-->
+                    <div id="Card2"
+                        class="bg-orang-menu w-[680px] h-[250px] rounded-4xl justify-items-end drop-shadow-lg">
+                        <div class="flex flex-col bg-white w-[669px] h-[250px] rounded-4xl py-5 px-10">
+                            <div class="flex justify-between">
+                                <div>
+                                    <div class="text-[40px] font-semibold">ชื่อ : <span class="font-normal">MOMO</span>
+                                    </div>
+                                    <div class="text-[35px] font-normal"><a class="font-semibold">เบอร์ :</a>
+                                        000-000-0000</div>
+                                </div>
+                                <div>
+                                    <div
+                                        class="bg-orang-menu/20 px-10 py-2 rounded-full text-3xl text-orang-menu font-semibold content-center">
+                                        กลับบ้าน</div>
+                                    <div class="text-right text-orang-menu opacity-30 font-bold text-[78px]"># 02</div>
+                                </div>
+                            </div>
+                            <div class="flex justify-between">
+                                <div class="text-4xl font-medium">1รายการ <span class="text-orang-menu">390บาท</span>
+                                </div>
+                                <div class="text-4xl font-normal text-black/30">14 นาที</div>
+                            </div>
+                        </div>
+                    </div>
+
                     <!--card 3-->
                     <div id="Card3"
                         class="bg-green-logo w-[680px] h-[250px] rounded-4xl justify-items-end drop-shadow-lg">
@@ -140,68 +166,42 @@
             </main>
         </div>
 
-        <aside class="bg-white w-[1100px] min-h-[920px] rounded-t-4xl ml-10 shadow-2xl px-10 pt-20">
+        <aside class="bg-white w-[1100px] min-h-[920px] rounded-t-4xl ml-10 shadow-2xl px-10 pt-15">
             <!--หัวรายละเอียด-->
             <div class="flex justify-between px-5">
-                <h1 class="text-8xl font-semibold">โต๊ะที่ 2</h1>
+                <div class="flex flex-col gap-5">
+                    <h1 class="text-5xl font-semibold">ชื่อ : <span class="text-5xl font-normal">MOMO</span></h1>
+                    <h1 class="text-5xl font-semibold">เบอร์ : <span class="text-5xl font-normal">000-000-000</span></h1>
+                </div>
                 <div>
-                    <div class="bg-green-logo rounded-full text-white text-3xl font-semibold content-center px-10 py-2">
-                        ทานที่ร้าน
+                    <div class="bg-orang-menu rounded-full text-white text-3xl font-semibold content-center px-10 py-2">
+                        กลับบ้าน
                     </div>
                 </div>
             </div>
 
             <div class="flex justify-between px-5">
-                <div class="text-[40px] font-light text-black/30 content-center">3รายการ <a
+                <div class="text-[40px] font-light text-black/30 content-center">1รายการ <a
                         class="text-green-logo text-4xl font-normal">&nbsp;&nbsp;&nbsp;14นาที</a></div>
-                <div class="text-[64px] font-semibold text-orang-menu">150 บาท</div>
+                <div class="text-[64px] font-semibold text-orang-menu">390 บาท</div>
             </div>
 
             <div class="w-[1087px] h-[420px] overflow-y-auto no-scrollbar select-none mt-5">
-                <!--crad3.1-->
+                <!--crad2.1-->
                 <div
                     class="flex bg-white inset-shadow-2xs border-black/10 border-1 w-[1033px] h-[189px] rounded-4xl shadow-lg items-center px-5 gap-10 mb-5">
                     <div class="text-8xl font-semibold text-black/20">01</div>
                     <img src="/owner/img/food-menu1.jpg" class="size-[145.32px] rounded-4xl">
                     <div class="flex-col mb-5">
-                        <div class="text-3xl font-medium">ข้าวห่อหมกไข่ทะเล <a class="text-orang-menu text-[40px]">
-                                &nbsp;&nbsp;X 1</a></div>
+                        <div class="text-3xl font-medium">ข้าวหน้าหมูเทริยากิ <a class="text-orang-menu text-[40px]">
+                                &nbsp;&nbsp;X 6</a></div>
                         <div class="flex items-center mt-2">
                             <i class="fa-solid fa-star text-orang-menu text-[20px]"></i>
                             <p class="text-orang-menu text-3xl font-medium">&nbsp;พิเศษ</p>
                         </div>
-                        <div class="flex items-center text-green-logo">
-                            <i class="fa-solid fa-circle-plus text-[20px]"></i>
-                            <p class="text-3xl font-medium">&nbsp;เพิ่มหมูสับ</p>
-                        </div>
                     </div>
-                    <div class="text-orang-menu text-[40px] font-semibold ml-30">65 <a
+                    <div class="text-orang-menu text-[40px] font-semibold ml-30">390 <a
                             class="text-black/20 text-[40px] font-semibold">บาท</a></div>
-                </div>
-                <!--crad3.2-->
-                <div
-                    class="flex bg-white inset-shadow-2xs border-black/10 border-1 w-[1033px] h-[189px] rounded-4xl shadow-lg items-center px-5 gap-7 mb-5">
-                    <div class="text-8xl font-semibold text-black/20">02</div>
-                    <img src="/owner/img/food-menu5.jpg" class="size-[145.32px] rounded-4xl">
-                    <div class="flex-col mb-10">
-                        <div class="text-3xl font-medium ml-2 mb-10">ข้าวหมูสับคั่วพริกเกลือ<a
-                                class="text-orang-menu text-[40px]"> &nbsp;X 1</a></div>
-                    </div>
-                    <div class="text-orang-menu text-[40px] font-semibold ml-20">45 <a
-                            class="text-black/20 text-[40px] font-semibold">บาท</a></div>
-                </div>
-                <!--crad3.2-->
-                <div
-                    class="flex bg-white inset-shadow-2xs border-black/10 border-1 w-[1033px] h-[189px] rounded-4xl shadow-lg items-center px-5 gap-7 mb-5">
-                    <div class="text-8xl font-semibold text-black/20">03</div>
-                    <img src="/owner/img/food-menu8.jpg" class="size-[145.32px] rounded-4xl">
-                    <div class="flex-col mb-10">
-                        <div class="text-3xl font-medium ml-2 mb-10">ข้าวกะเพราหมูสับ 
-                        <a class="text-orang-menu text-[40px]"> &nbsp;X 1</a></div>
-                    </div>
-                    <div class="text-orang-menu text-[40px] font-semibold ml-36">40 
-                        <a class="text-black/20 text-[40px] font-semibold">บาท</a>
-                    </div>
                 </div>
             </div>
 
@@ -300,8 +300,8 @@
 
     </div>
 
-    <script src="/owner/DoneOrder/done3.js"></script>
-    <script src="/owner/cancelOrder/cancelorder3.js"></script>
+    <script src="/owner/DoneOrder/done2.js"></script>
+    <script src="/owner/cancelOrder/cancelorder2.js"></script>
 </body>
 
 </html>
