@@ -157,16 +157,6 @@ function isChecked(name) {
 //เช็คว่าเราติ้ก กรอกถูกมั้ย ทุกอันครบมั้ย
 function checkSelection() {
 
-    if (!isChecked('spicy')) {
-        showAlert("กรุณาเลือกระดับความเผ็ด");
-        return;
-    }
-
-    if (!isChecked('meat')) {
-        showAlert("กรุณาเลือกประเภทเนื้อสัตว์");
-        return;
-    }
-
     showSuccessAlert("เพิ่มรายการอาหารลงตะกร้าเรียบร้อยแล้ว"); 
     setTimeout(function() {
         closeshowSuccessAlert();
@@ -176,6 +166,7 @@ function checkSelection() {
 
 //กดเอากับพิเศษต(ต้องกำหนดตัวแปรที่มันเก็บราคาที่เรากดพิเศษแล้วค่อยเอาไปคำนวณราคารวม)
 let count = 1;
+let extraPrice = 0;
 function updateDisplay() {
     document.getElementById('value').textContent = count;
     
