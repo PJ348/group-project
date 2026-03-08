@@ -32,12 +32,17 @@ cancelBtn.addEventListener('click', () => {
 });
 
 // 3. เมื่อกด "ยืนยัน" ใน Modal
+// 3. เมื่อกด "ยืนยัน" ใน Modal
 confirmBtn.addEventListener('click', () => {
-    // ซ่อน Modal 
-    modal.classList.add('hidden'); 
-    
-    // สลับสถานะปุ่ม (เปลี่ยนสีและข้อความ)
-    toggleStatus(); 
+    // ใช้ setTimeout ครอบคำสั่งทั้งหมดไว้เพื่อสร้างดีเลย์
+    setTimeout(() => {
+        // ซ่อน Modal 
+        modal.classList.add('hidden');
+        
+        // สลับสถานะปุ่ม (เปลี่ยนสีและข้อความ)
+        toggleStatus(); 
+        
+    }, 1000); // <-- ใส่ดีเลย์ 200 มิลลิวินาที (0.2 วินาที) ตรงนี้ครับ
 });
 
 // --- ฟังก์ชันสำหรับเปลี่ยนสีและไอคอน (แยกออกมาเพื่อให้เรียกใช้ง่ายๆ) ---
@@ -73,6 +78,6 @@ function toggleStatus() {
             // เมื่อครบ 2 วินาที ให้ดึงการ์ดกลับมาที่เดิม (translate-x-0) และชัดเต็มที่ (opacity-100)
             main.classList.remove('opacity-0', 'translate-x-500');
             main.classList.add('opacity-100', 'translate-x-0');
-        }, 2000); // <-- เปลี่ยนตัวเลขตรงนี้ได้ (1000 = 1 วินาที)
+        }, 1000); // <-- เปลี่ยนตัวเลขตรงนี้ได้ (1000 = 1 วินาที)
     }
 }

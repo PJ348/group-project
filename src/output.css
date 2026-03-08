@@ -481,9 +481,6 @@
   .h-\[3\] {
     height: 3;
   }
-  .h-\[130-\] {
-    height: 130-;
-  }
   .h-\[130\] {
     height: 130;
   }
@@ -810,8 +807,23 @@
   .bg-orang-menu {
     background-color: var(--color-orang-menu);
   }
+  .bg-red-order {
+    background-color: var(--color-red-order);
+  }
   .bg-orang-menu\/30 {
     background-color: color-mix(in srgb, #FF9800 30%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-orang-menu) 30%, transparent);
+    }
+  }
+  .bg-red-order\/10 {
+    background-color: color-mix(in srgb, #FF3C00 10%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-orang-menu) 30%, transparent);
+    }
+  }
+  .bg-orang-menu\/20 {
+    background-color: color-mix(in srgb, #FF9800 20%, transparent);
     @supports (color: color-mix(in lab, red, red)) {
       background-color: color-mix(in oklab, var(--color-orang-menu) 30%, transparent);
     }
