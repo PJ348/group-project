@@ -45,27 +45,26 @@
 เครื่องมือและเทคโนโลยีที่ใช้ในการพัฒนาส่วนหน้าบ้าน:
 
 - **HTML5**
-- **CSS3**
+- **tailwind css**
 - **JavaScript (Vanilla JS)**
 
 ---
 
 ## User Manual
 คู่มือการใช้งานระบบสำหรับผู้ใช้และผู้ดูแลร้าน สามารถดูรายละเอียดเพิ่มเติมได้ที่ลิงก์ด้านล่าง:
-- [User Manual Tawawan Dog Café](#) *(หมายเหตุ: สามารถแนบลิงก์ไฟล์ PDF หรือ Google Docs ของคู่มือแทนเครื่องหมาย # ได้เลย)*
+- [https://docs.google.com/document/d/1uXjXzO6uRfVuC5z1rIONnYdl0w-9BDt8c-91-BQHkrs/edit?usp=sharing](https://docs.google.com/document/d/1uXjXzO6uRfVuC5z1rIONnYdl0w-9BDt8c-91-BQHkrs/edit?usp=sharing)
 
 ---
 
 ## Team Job Position
-รายชื่อสมาชิก **กลุ่มแม่เสือสาว (Mae Suea Sao Group)** และตำแหน่งหน้าที่รับผิดชอบ:
+รายชื่อสมาชิก **กลุ่มทำโปรเจคจนกว่าจะเบื่อ (Tham project jon gwa ja beua)** และตำแหน่งหน้าที่รับผิดชอบ:
 
 | Student ID | Name | Position |
 | :---: | :--- | :--- |
-| 67022568 | Chanisara Rakpho | UI Design |
-| 67022692 | Pannawat Hwangmontri | UI Design |
-| 67023110 | Aekkaphat Ainsawat | UI Design |
-| 67026416 | Nittaya Pana | UI Design |
-| 67026427 | Pattarawin Rungpanarat | UX/UI Design & Front-End Developer |
+| 68023403 | นางสาวภรณ์ทินรดา จันทร์เพ็ญ (PORNTHINRADA JANPHEN)| Front-End Developer |
+| 68025461 | นางสาวพิชญดา ใสโสภณ (PHICHAYADA SAISOPHON | BA and UI Designer|
+| 68025472 | นายเมธาสิทธิ์ มูลศรี (METHASIT MOONSRI) | Front-End Developer |
+| 68025494 | นายวุฒิภัทร สัตตทิพย์พงศ์ (PUTTIPAT SATTATHIPPONG) | Project Leader and UX/UI Design |
 
 ---
 
@@ -77,5 +76,5 @@
 
 ## Contact
 หากมีข้อสงสัยหรือคำถามเกี่ยวกับโปรเจกต์ สามารถติดต่อผู้ดูแลโปรเจกต์ได้ที่:
-- **อีเมล:** [67026427@gmail.com](mailto:67026427@gmail.com)
-- **GitHub:** [pattarawin-rungpanarat](https://github.com/pattarawin-rungpanarat)
+- **อีเมล:** [68025494@up.ac.th.com](mailto:68025494@up.ac.th.com)
+- **GitHub:** [68025494-afk](https://github.com/68025494-afk)
