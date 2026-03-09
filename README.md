@@ -1,17 +1,17 @@
-# ระบบจัดการออร์เดอร์และรายการเมนูสำหรับร้าน Tawawan Dog Café
+#  ระบบสั่งอาหารภายในร้านค้า (Web-Based Food Ordering System)
 
-[![Demo URL](https://img.shields.io/badge/Demo-Live%20Website-success.svg)](https://tawawan-dog-cafe.onrender.com)
-[![Academic Year](https://img.shields.io/badge/Academic%20Year-2024%20(2567)-blue.svg)]()
+[![Project Status: Active](https://img.shields.io/badge/Project%20Status-Active-success.svg)]()
+[![Academic Year](https://img.shields.io/badge/Academic%20Year-2025%20(2568)-blue.svg)]()
 
-โปรเจกต์นี้เป็นส่วนหนึ่งของรายวิชา **Frontend Software Development** และ **Software Requirement** โดยเป็นเว็บไซต์สำหรับการจองและสั่งอาหารที่พัฒนาโดย **กลุ่มแม่เสือสาว** จากสาขาวิศวกรรมซอฟต์แวร์ มหาวิทยาลัยพะเยา (University of Phayao) สำหรับปีการศึกษา 2567 เพื่อมุ่งเน้นการพัฒนาซอฟต์แวร์ที่ตอบโจทย์การใช้งานจริงและเสริมสร้างทักษะด้านวิศวกรรมซอฟต์แวร์ให้กับนักศึกษา
+โปรเจกต์นี้เป็นส่วนหนึ่งของรายวิชา **Frontend Software Development** และ **Software Requirement** โดยเป็นเว็บไซต์สำหรับการจองและสั่งอาหารที่พัฒนาโดย **กลุ่มทำโปรเจคจนกว่าจะเบื่อ (Tham project jon gwa ja beua)** จากสาขาวิศวกรรมซอฟต์แวร์ มหาวิทยาลัยพะเยา (University of Phayao) สำหรับปีการศึกษา 2568 เพื่อมุ่งเน้นการพัฒนาซอฟต์แวร์ที่ตอบโจทย์การใช้งานจริงและเสริมสร้างทักษะด้านวิศวกรรมซอฟต์แวร์ให้กับนักศึกษา
 
-> *This project is part of the Frontend Software Development and Software Requirement courses. It is a booking website developed by **Mae Suea Sao Group** from the Software Engineering Department, University of Phayao, for the academic year 2024. The project aims to enhance software development skills and provide practical solutions for real-world applications.*
+> *This project is a part of the Frontend Software Development and Software Requirement courses. It is a booking and food ordering website developed by the Tham project jon gwa ja beua group from the Department of Software Engineering, University of Phayao, for the academic year 2025. The project aims to develop software that provides practical solutions for real-world applications while enhancing the students' software engineering skills.*
 
 ---
 
-## Table of Contents
+##  Table of Contents
 - [Completed Functions](#-completed-functions)
-- [Incomplete Functions](#-incomplete-functions)
+- [Limitations & Out of Scope](#-limitations--out-of-scope)
 - [Tech Stack Frontend](#-tech-stack-frontend)
 - [User Manual](#-user-manual)
 - [Team Job Position](#-team-job-position)
@@ -20,61 +20,82 @@
 
 ---
 
-## Completed Functions
+##  Completed Functions
 ฟังก์ชันการทำงานที่เสร็จสมบูรณ์และสามารถใช้งานได้จริง:
 
-- **การจัดการออร์เดอร์:** ให้เจ้าของร้านสามารถจัดการและติดตามออร์เดอร์ของลูกค้าได้แบบเรียลไทม์
-- **การจัดการเมนู:** เจ้าของร้านสามารถเพิ่ม, อัปเดต, และลบรายการเมนูในหมวดหมู่ต่างๆ เช่น อาหารทานเล่น, เบเกอรี่, และเครื่องดื่ม
-- **การจัดการโปรโมชั่น:** สามารถสร้าง, อัปเดต, และลบโปรโมชั่นพิเศษ เช่น ส่วนลดหรือข้อเสนอพิเศษ
-- **ระบบคำนวณราคาสินค้า:** ระบบจะคำนวณราคาของสินค้าทั้งหมดในออร์เดอร์โดยอัตโนมัติก่อนที่จะทำการชำระเงิน
-- **ระบบชำระเงิน:** ระบบให้ลูกค้าสามารถชำระเงินสำหรับออร์เดอร์ผ่านช่องทางออนไลน์ได้อย่างปลอดภัย (รองรับการสแกน QR Code)
-- **ระบบแจ้งเตือน (Notifications):** - **แจ้งเตือนสำหรับลูกค้า:** ลูกค้าจะได้รับการแจ้งเตือนเมื่อทำการสั่งออร์เดอร์เสร็จสิ้น รวมถึงสถานะของออร์เดอร์
-  - **แจ้งเตือนสำหรับผู้ดูแลระบบ:** เจ้าของร้านจะได้รับการแจ้งเตือนเมื่อมีการสั่งออร์เดอร์ใหม่ เพื่อให้สามารถตรวจสอบและจัดการออร์เดอร์ได้ทันที
+###  ฝั่งลูกค้า (Customers)
+- **ระบบแสดงรายการอาหาร (Digital Menu Display):**
+  - แสดงรูปภาพและราคาของเมนูอย่างชัดเจน
+  - มีแถบแสดง **“จำนวนคิวทั้งหมด”** ที่กำลังรออยู่บริเวณด้านบนสุดของเว็บไซต์ เพื่อให้ลูกค้าประเมินเวลารอเบื้องต้นได้
+- **ระบบเลือกรายการอาหารและระบุรายละเอียด (Customization & Note):**
+  - รองรับการเลือกออปชัน เช่น ธรรมดา หรือ พิเศษ
+  - สามารถระบุคำขอเพิ่มเติม (Add-on/Note) ให้กับทางร้านได้
+- **ระบบตะกร้าสินค้าและคำนวณราคา (Foods Cart):**
+  - สรุปรายการอาหาร คำนวณราคารวม และเลือกรูปแบบการรับประทาน (ทานที่ร้าน / สั่งกลับบ้าน)
+  - **ทานที่ร้าน:** ระบบบังคับให้เลือก "เบอร์โต๊ะ" (เลข 1 ถึง 4)
+  - **สั่งกลับบ้าน:** ระบบบังคับให้กรอก "ชื่อ" และ "เบอร์โทรศัพท์" โดยระบบจะตรวจสอบความถูกต้อง หากไม่ครบ 10 หลัก จะแสดงข้อความแจ้งเตือน (Error Message) และไม่อนุญาตให้ส่งออเดอร์
+- **ระบบยืนยันคำสั่งซื้อ (Order Confirmation):**
+  - เมื่อส่งออเดอร์ ระบบจะสร้าง **“หมายเลขออเดอร์ (Order ID)”** และแสดงคำแนะนำการชำระเงิน (เช่น “กรุณาชำระเงินที่หน้าเคาน์เตอร์”)
+  - หน้าจอติดตามคิวของลูกค้าจะอัปเดตข้อมูล **“จำนวนคิวทั้งหมด”** แบบอัตโนมัติ (Auto-refresh/Polling) เพื่อให้ลูกค้าทราบความคืบหน้าได้ทันทีโดยไม่ต้องกดรีเฟรชหน้าเว็บ
+
+###  ผู้ดูแลระบบหรือเจ้าของร้าน (Administrator / Owner)
+- **จอแสดงผลในครัว (Kitchen Display System - KDS):**
+  - แสดงรายการออเดอร์เรียงตามลำดับคิว (แสดงเฉพาะออเดอร์ที่สั่งผ่านเว็บไซต์)
+  - มีสัญลักษณ์ระบุชัดเจนว่า **ทานที่ร้าน** (เน้นแสดงเบอร์โต๊ะ) หรือ **สั่งกลับบ้าน** (เน้นแสดงชื่อลูกค้า)
+  - มีปุ่ม **“เสร็จสิ้น”** เมื่อทำอาหารเสร็จ ระบบจะนำออเดอร์ออกจากหน้าจอ และอัปเดตจำนวนคิวบนหน้าจอของลูกค้าโดยอัตโนมัติ
+- **ระบบจัดการเมนูอาหาร (Menu Management):**
+  - สามารถ เพิ่ม/ลบ/แก้ไข รายการอาหาร ราคา รูปภาพ และจัดการสถานะของเมนูได้
+- **ระบบรายงานยอดขายและจัดการร้าน (Sales Analytics & Store Status):**
+  - ดูสรุปยอดขายตามวันที่กำหนด จากออเดอร์ที่เสร็จสิ้น (แสดงยอดเงินรวม)
+  - ระบบเปิด-ปิดรับออเดอร์ออนไลน์ (เวลาทำการ 11:00–23:00 น.) 
+  - หากร้านปิดรับออเดอร์ หน้าเว็บของลูกค้าจะแสดงข้อความ *“ร้านปิดรับออเดอร์ออนไลน์ชั่วคราว”* (ลูกค้าจะยังดูเมนูได้ แต่ไม่สามารถกดสั่งซื้อได้)
 
 ---
 
-## Incomplete Functions
-ฟังก์ชันที่อยู่ในระหว่างการพัฒนาหรือพบข้อบกพร่อง (Bugs) ที่ต้องแก้ไข:
+##  Limitations & Out of Scope
+ข้อจำกัดและขอบเขตการทำงานที่อยู่นอกเหนือระบบ (สิ่งที่ระบบไม่ครอบคลุม):
 
-- **การแก้ไขเมนู:** พบข้อผิดพลาดเมื่อแก้ไขชื่อเมนู ระบบจะทำการเพิ่มเมนูใหม่อีก 1 รายการโดยอัตโนมัติ (แทนที่จะอัปเดตข้อมูลเดิม)
-- **ระบบคำนวณโปรโมชั่น:** ปัจจุบันระบบยังไม่สามารถคำนวณส่วนลดและสิทธิพิเศษตามเงื่อนไขของโปรโมชั่นที่กำหนดไว้ได้
+- **ไม่มีระบบชำระเงินออนไลน์ภายในเว็บ:** ไม่รองรับ Payment Gateway
+- **ไม่เชื่อมต่อกับแพลตฟอร์มภายนอก:** ไม่มีการเชื่อมต่อกับ Delivery App (เช่น Grab, LINEMAN)
+- **ไม่สามารถแก้ไขออเดอร์ได้:** เมื่อลูกค้ากดยืนยันออเดอร์แล้ว จะไม่สามารถแก้ไขข้อมูลผ่านระบบได้
+- **ไม่รองรับการแทรกคิวแบบ Manual:** ไม่สามารถนำออเดอร์ที่รับผ่านการจดกระดาษหน้าร้าน มาแทรกเข้าสู่ระบบคิวออนไลน์ได้
 
 ---
 
-## Tech Stack Frontend
-เครื่องมือและเทคโนโลยีที่ใช้ในการพัฒนาส่วนหน้าบ้าน:
+##  Tech Stack Frontend
+เครื่องมือและเทคโนโลยีที่ใช้ในการพัฒนาส่วนหน้าบ้าน (Frontend):
 
 - **HTML5**
-- **tailwind css**
+- **Tailwind CSS**
 - **JavaScript (Vanilla JS)**
 
 ---
 
-## User Manual
+## 📖 User Manual
 คู่มือการใช้งานระบบสำหรับผู้ใช้และผู้ดูแลร้าน สามารถดูรายละเอียดเพิ่มเติมได้ที่ลิงก์ด้านล่าง:
-- [https://docs.google.com/document/d/1uXjXzO6uRfVuC5z1rIONnYdl0w-9BDt8c-91-BQHkrs/edit?usp=sharing](https://docs.google.com/document/d/1uXjXzO6uRfVuC5z1rIONnYdl0w-9BDt8c-91-BQHkrs/edit?usp=sharing)
+ **[คู่มือการใช้งานระบบสั่งอาหารภายในร้านค้า (Google Docs)](https://docs.google.com/document/d/1uXjXzO6uRfVuC5z1rIONnYdl0w-9BDt8c-91-BQHkrs/edit?usp=sharing)**
 
 ---
 
-## Team Job Position
+##  Team Job Position
 รายชื่อสมาชิก **กลุ่มทำโปรเจคจนกว่าจะเบื่อ (Tham project jon gwa ja beua)** และตำแหน่งหน้าที่รับผิดชอบ:
 
 | Student ID | Name | Position |
 | :---: | :--- | :--- |
-| 68023403 | นางสาวภรณ์ทินรดา จันทร์เพ็ญ (PORNTHINRADA JANPHEN)| Front-End Developer |
-| 68025461 | นางสาวพิชญดา ใสโสภณ (PHICHAYADA SAISOPHON | BA and UI Designer|
-| 68025472 | นายเมธาสิทธิ์ มูลศรี (METHASIT MOONSRI) | Front-End Developer |
-| 68025494 | นายวุฒิภัทร สัตตทิพย์พงศ์ (PUTTIPAT SATTATHIPPONG) | Project Leader and UX/UI Design |
+| 68023403 | นางสาวภรณ์ทินรดา จันทร์เพ็ญ (Pornthinrada Janphen) | Front-End Developer |
+| 68025461 | นางสาวพิชญดา ใสโสภณ (Phichayada Saisophon) | BA and UI Designer |
+| 68025472 | นายเมธาสิทธิ์ มูลศรี (Methasit Moonsri) | Front-End Developer |
+| 68025494 | นายวุฒิภัทร สัตตทิพย์พงศ์ (Puttipat Sattathippong) | Project Leader and UX/UI Design |
 
 ---
 
-## Demo
+##  Demo
 สามารถทดลองใช้งานเว็บไซต์จริงได้ที่นี่:
-**[https://tawawan-dog-cafe.onrender.com](https://tawawan-dog-cafe.onrender.com)**
+ **[ลิงก์สำหรับเข้าใช้งานเว็บไซต์ (รออัปเดต URL จริง)](https://your-actual-demo-link.onrender.com)** *(หมายเหตุ: อย่าลืมเปลี่ยนลิงก์ตรงนี้ให้เป็นของกลุ่มตัวเองนะครับ)*
 
 ---
 
-## Contact
+##  Contact
 หากมีข้อสงสัยหรือคำถามเกี่ยวกับโปรเจกต์ สามารถติดต่อผู้ดูแลโปรเจกต์ได้ที่:
-- **อีเมล:** [68025494@up.ac.th.com](mailto:68025494@up.ac.th.com)
+- **อีเมล:** [68025494@up.ac.th](mailto:68025494@up.ac.th)
 - **GitHub:** [68025494-afk](https://github.com/68025494-afk)
