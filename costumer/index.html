@@ -207,7 +207,7 @@
             <div onclick="backHomePage()" class="bg-white p-2 rounded-full w-10 h-10 flex justify-center items-center shadow-lg">
                 <i class="fa-solid fa-chevron-left hover:cursor-pointer"></i>
             </div>
-            <p class="text-lg font-bold">รายการอาหาร</p>
+            <p class="text-xl font-semibold">รายการอาหาร</p>
         </div>
 
         <main id="addMenu" class="p-6 flex flex-row max-sm:pb-[100px] sm:space-x-4 max-sm:flex-col">
@@ -216,8 +216,8 @@
             <div class="bg-white flex-col pb-6 w-full sm:w-[55%] h-fit rounded-3xl shadow-lg">
                 <img id="addMenuImg" alt="food" class="w-full h-full object-cover rounded-3xl p-4">
                 <div class="flex justify-between px-6 py-6">
-                    <p id="addMenuName" class="text-xl font-bold"></p>
-                    <p id="addMenuPrice" class="text-xl font-bold text-[#FF9800]"> <span
+                    <p id="addMenuName" class="text-xl font-semibold"></p>
+                    <p id="addMenuPrice" class="text-xl font-semibold text-[#FF9800]"> <span
                             class="text-base font-light">บาท</span></p>
                 </div>
             </div>
@@ -227,11 +227,11 @@
 
                 <!-- ส่วนการ์ดขาวฝั่งขวา -->
                 <div class="bg-white rounded-3xl px-12 py-8 shadow-lg w-full">
-                    <p class="flex justify-center text-2xl font-bold pb-10">ตัวเลือก</p>
+                    <p class="flex justify-center text-2xl font-semibold pb-10">ตัวเลือก</p>
 
                     <!-- พิเศษ ธรรมดา -->
                     <div class="pb-6">
-                        <p class="pb-1 text-lg font-semibold">ปริมาณอาหาร</p>
+                        <p class="pb-1 text-lg font-medium">ปริมาณอาหาร</p>
                         <form class="space-y-2">
                             <label class="w-full flex justify-between border border-gray-300 rounded-xl hover:bg-gray-100 transition">
                                 <div class="px-4 py-3 flex items-center space-x-2">
@@ -252,7 +252,7 @@
 
                     <!-- เพิ่มข้าว -->
                     <div class="pb-6">
-                        <p class="pb-1 text-lg font-semibold">ปริมาณข้าว</p>
+                        <p class="pb-1 text-lg font-medium">ปริมาณข้าว</p>
                         <form class="space-y-2">
 
                             <label class="w-full flex justify-between border border-gray-300 rounded-xl hover:bg-gray-100 transition">
@@ -281,7 +281,7 @@
                     
                     <!-- คำขอเพิ่มเติม -->
                     <div class="pb-8">
-                        <p class="pb-1 text-lg font-semibold">คำขอเพิ่มเติม</p>
+                        <p class="pb-1 text-lg font-medium">คำขอเพิ่มเติม</p>
                         <input type="text" id="req" name="req" placeholder="ระบุคำขอเพิ่มเติม"
                         class="border border-gray-300 rounded-xl px-4 py-3 w-full" />
                     </div>
@@ -304,14 +304,14 @@
                     </div>
                     <!-- ยอดรวม -->
                     <div class="flex justify-between px-6 pb-6">
-                        <p class="text-xl font-bold">รวม</p>
-                        <p class="text-xl font-bold text-[#FF9800]" id="price"></p>
+                        <p class="text-xl font-medium">รวม</p>
+                        <p class="text-xl font-medium text-[#FF9800]" id="price"></p>
                     </div>
 
                     <!-- ปุ่มเพิ่มลงตระกล้า -->
                     <div class="flex justify-center px-6 " onclick="checkSelection()">
                         <button
-                            class="bg-[#4CAF50] text-white font-medium text-xl rounded-full w-full h-14 hover:bg-green-700 transition cursor-pointer">เพิ่มไปยังตระกล้า</button>
+                            class="bg-[#4CAF50] text-white font-medium text-xl rounded-full w-full h-14 hover:bg-green-700 transition cursor-pointer">เพิ่มไปยังตะกร้า</button>
                     </div>
 
                 </div>
@@ -324,7 +324,7 @@
         <div class="flex justify-center bg-[#FF9800] px-4 py-2 rounded-full relative  cursor-pointer"
             onclick="goCartPage()">
             <span
-                class="bg-black text-white text-sm font-bold flex justify-center items-center w-8 h-8 rounded-full absolute -top-2 -right-2">1</span>
+                class="bg-black text-white text-sm font-medium flex justify-center items-center w-8 h-8 rounded-full absolute -top-2 -right-2">1</span>
             <i class="fa-solid fa-bag-shopping text-white text-xl"></i>
             <p class="text-white text-lg font-medium px-2">ตะกร้าของฉัน</p>
         </div>
