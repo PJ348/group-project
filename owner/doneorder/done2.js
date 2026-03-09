@@ -104,7 +104,7 @@ function processSwipeCompletion() {
     // 3. ดีเลย์ 800 มิลลิวินาที (0.8 วินาที) เพื่อให้แอนิเมชันเล่นจบ แล้วค่อยเด้งไปหน้าใหม่
     setTimeout(() => {
         // *** ใส่ลิงก์หน้าเว็บที่คุณต้องการให้เด้งไปตรงนี้ ***
-        window.location.href = '/owner/detailmenu/menu3.html';
+        window.location.href = './menu3.html';
     }, 200);
 }
 

@@ -35,7 +35,7 @@
             // รอ 0.3 วินาทีให้แอนิเมชันเล่นจบ แล้วค่อยลบทิ้งจริงๆ
             setTimeout(() => {
                 firstCard.remove();
-                window.location.href = '/owner/detailmenu/menu2.html';
+                window.location.href = './menu2.html';
 
                 // (ตัวเลือกเสริม) ถ้ามีการ์ดเหลือ ให้จำลองเปลี่ยนข้อมูลฝั่งขวา
                 const nextCard = slider.querySelector('div[id^="Card"]');
