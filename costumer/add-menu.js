@@ -185,7 +185,7 @@ function checkSelection() {
     setTimeout(function() {
         closeshowSuccessAlert();
         backHomePage();
-    }, 1500);
+    }, 1000);
 }
 
 function updateCartBadge() {

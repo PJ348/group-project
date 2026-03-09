@@ -138,23 +138,43 @@ function renderCart() {
         grandTotalPrice += item.price;
         let itemNum = String(index + 1).padStart(2, '0');
 
-        // ตรวจสอบ Option ถ้าไม่มีให้ใส่ขีด หรือซ่อนไป
-        let sizeText = item.options.size || 'ธรรมดา';
-        let riceText = item.options.rice ? `เพิ่มข้าว` : 'ปกติ';
-        let reqText = item.options.req ? item.options.req : 'ไม่มีคำขอพิเศษ';
+        let sizeText = 'ธรรมดา'; // ตั้งค่าเริ่มต้นไว้ก่อน
+        if (item.options.size) {
+            sizeText = item.options.size;
+        }
+
+        let riceText = 'ปกติ'; // ตั้งค่าเริ่มต้น
+        if (item.options.rice === 'extra') {
+            riceText = 'เพิ่มข้าว';
+        } else if (item.options.rice === 'less') {
+            riceText = 'ข้าวน้อย';
+        }
+
+        let reqHTML = ' '; // ตั้งค่าเริ่มต้น
+        if (item.options.req && item.options.req.trim() !== '') {
+
+            reqText = item.options.req;
+
+            reqHTML = `
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-circle-plus text-[#4CAF50] text-[10px] flex"></i>
+                    <span class="text-sm font-normal text-[#4CAF50] line-clamp-1">${reqText}</span>
+                </div>
+            `;
+        }
 
         htmlContent += `
         <div class="bg-[#AAABAC] rounded-3xl w-full mb-6">
 
             <div id="foodOrder" class="bg-white rounded-3xl shadow-lg ml-2.5 py-2 px-6 flex gap-6">
-                <p class="text-5xl font-extrabold text-[#D9D9D9] flex justify-center items-center p-2 max-sm:text-xl max-[1025px]:text-3xl">
+                <p class="text-5xl font-bold text-[#D9D9D9] flex justify-center items-center p-2 max-sm:text-xl max-[1025px]:text-3xl">
                     ${itemNum}</p>
                 <img src="${item.img}" alt="food" class="w-28 h-28 object-cover rounded-2xl max-[985px]:hidden">
 
                 <div class="flex-1">
                     <div class="flex items-start">
-                        <p class="text-lg font-bold line-clamp-2">${item.name}</p>
-                        <p class="text-lg font-bold text-[#FF9800] ml-2 whitespace-nowrap"> X ${item.qty}</p> 
+                        <p class="text-lg font-medium line-clamp-2">${item.name}</p>
+                        <p class="text-lg font-medium text-[#FF9800] ml-2 whitespace-nowrap"> X ${item.qty}</p> 
                     </div>
                     <div class="flex flex-col gap-1 mt-1 ml-2">
                         <div class="flex items-center gap-2">
@@ -165,15 +185,14 @@ function renderCart() {
                             <i class="fa-solid fa-star text-[#FF9800] text-xs flex"></i>
                             <span class="text-sm font-normal text-[#FF9800] line-clamp-1">${riceText}</span>
                         </div>
-                        <div class="flex items-center gap-2">
-                            <i class="fa-solid fa-circle-plus text-[#4CAF50] text-xs flex"></i>
-                            <span class="text-sm font-normal text-[#4CAF50] line-clamp-1">${reqText}</span>
-                        </div>
+
+                        ${reqHTML}
+                        
                     </div>
                 </div>
 
                 <div class="flex flex-row justify-center items-center p-2 gap-4 max-[1025px]:relative">
-                    <p class="text-xl font-bold text-[#FF9800] max-[1025px]:mt-auto">${item.price}
+                    <p class="text-xl font-medium text-[#FF9800] max-[1025px]:mt-auto">${item.price}
                         <span class="text-xl font-medium text-black/30">บาท</span>
                     </p>
 
@@ -209,7 +228,7 @@ function updateSummary(qty, price) {
     const cartBadge = document.getElementById('totalCartList');
     if (cartBadge) {
         cartBadge.innerText = qty;
-        cartBadge.classList.remove('hidden'); 
+        cartBadge.classList.remove('hidden');
     }
 }
 
@@ -232,55 +251,55 @@ function confirmOrder() {
     const eatHere = document.getElementById('eatHere').classList.contains('border-[#4CAF50]');
 
     if (eatHere) {
-        if (numberTable.value === '') { 
-            showAlert('กรุณาระบุหมายเลขโต๊ะ'); 
-            return; 
+        if (numberTable.value === '') {
+            showAlert('กรุณาระบุหมายเลขโต๊ะ');
+            return;
         }
-        if (!/^[1-4]$/.test(table)) { 
-            showAlert('กรุณาระบุหมายเลขโต๊ะให้ถูกต้อง (1-4)'); 
-            return; 
+        if (!/^[1-4]$/.test(table)) {
+            showAlert('กรุณาระบุหมายเลขโต๊ะให้ถูกต้อง (1-4)');
+            return;
         }
     } else {
         if (name === '') {
-            showAlert('กรุณาระบุชื่อผู้รับอาหาร'); 
-            return; 
+            showAlert('กรุณาระบุชื่อผู้รับอาหาร');
+            return;
         }
-        if (!/^[ก-๙\s]+$/.test(name)) { 
-            showAlert('กรุณาระบุชื่อผู้รับอาหารให้ถูกต้อง (เป็นภาษาไทยเท่านั้น)'); 
-            return; 
+        if (!/^[ก-๙\s]+$/.test(name)) {
+            showAlert('กรุณาระบุชื่อผู้รับอาหารให้ถูกต้อง (เป็นภาษาไทยเท่านั้น)');
+            return;
         }
-        if (phone === '') { 
-            showAlert('กรุณาระบุเบอร์โทรศัพท์'); 
-            return; 
+        if (phone === '') {
+            showAlert('กรุณาระบุเบอร์โทรศัพท์');
+            return;
         }
-        if (!/^0\d{9}$/.test(phone)) { 
-            showAlert('กรุณาระบุเบอร์โทรศัพท์ให้ถูกต้อง (10หลัก)'); 
-            return; 
+        if (!/^0\d{9}$/.test(phone)) {
+            showAlert('กรุณาระบุเบอร์โทรศัพท์ให้ถูกต้อง (10หลัก)');
+            return;
         }
     }
 
     // ซ่อน UI 
-    if (document.getElementById('addOrderIcon')) 
+    if (document.getElementById('addOrderIcon'))
         document.getElementById('addOrderIcon').classList.add('hidden');
-    if (document.getElementById('detailPayment')) 
+    if (document.getElementById('detailPayment'))
         document.getElementById('detailPayment').classList.add('hidden');
 
     const confirmBtns = document.querySelectorAll('#confirmOrder');
     confirmBtns.forEach(btn => btn.classList.add('hidden'));
 
-    if (document.getElementById('backIcon')) 
+    if (document.getElementById('backIcon'))
         document.getElementById('backIcon').classList.add('hidden');
 
     // โชว์หน้าสำเร็จ
-    if (document.getElementById('backHomeIcon')) 
+    if (document.getElementById('backHomeIcon'))
         document.getElementById('backHomeIcon').classList.remove('hidden');
-    if (document.getElementById('confirmOrderDone')) 
+    if (document.getElementById('confirmOrderDone'))
         document.getElementById('confirmOrderDone').classList.remove('hidden');
 
     // รันคิว
     let queue = parseInt(document.getElementById('queue').innerText) || 9;
     queue += 1;
-    
+
     if (document.getElementById('queue')) {
         document.getElementById('queue').innerText = queue;
         document.getElementById('queue').className = 'bg-[radial-gradient(circle,_var(--color-orange-400)_40%,_var(--color-orange-200)_100%)] inline-flex items-center justify-center text-white font-bold rounded-full w-8 h-8';
@@ -325,16 +344,16 @@ function deleteOrder(index) {
 // ยกเลิกการลบรายการอาหาร
 function closeConfirm() {
     document.getElementById('customConfirm').classList.add('hidden');
-    itemToDelete = null; 
+    itemToDelete = null;
 }
 
 // ยืนยยันการลบรายการอาหาร
-function proceedDelete() { 
+function proceedDelete() {
     if (itemToDeleteIndex > -1) {
         let cart = JSON.parse(sessionStorage.getItem('myCart')) || [];
         cart.splice(itemToDeleteIndex, 1);
         sessionStorage.setItem('myCart', JSON.stringify(cart));
-        
+
         renderCart(); //updateSummary เแก้ราคารวม
     }
     closeConfirm();
