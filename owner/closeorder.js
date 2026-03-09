@@ -1,4 +1,3 @@
-// อ้างอิง ID ปุ่มจากโครงสร้าง HTML ของคุณ
 const toggleBtn = document.getElementById('closd-order'); 
 const toggleIcon = document.getElementById('toggle-icon');
 const toggleText = document.getElementById('toggle-text');
