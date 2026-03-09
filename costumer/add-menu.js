@@ -95,6 +95,7 @@ function addMenuPage(groupId) {
     document.getElementById('price').innerText = menu.price + ' บาท';
 
     document.getElementById('normal').checked = true;
+    document.getElementById('normalRice').checked = true;
 } 
 
 // กดหลับไปหน้าhomeเหมือนเดิม
@@ -104,26 +105,26 @@ function backHomePage() {
     const addMenu = document.getElementById('addMenu');
     const detailMenu = document.getElementById('detailMenu');
 
-    const spicy = document.getElementsByName('spicy');
-    const meat = document.getElementsByName('meat');
     const size = document.getElementsByName('size');
     const ricesize = document.getElementsByName('ricesize');
+    
+    count = 1;
 
     home.classList.remove('hidden');
     addMenu.classList.add('hidden');
     detailMenu.classList.remove('hidden');
 
-    for (let i = 0; i < spicy.length; i++) {
-        spicy[i].checked = false;
-    }
-    for (let i = 0; i < meat.length; i++) {
-        meat[i].checked = false;
-    }
     for (let i = 0; i < size.length; i++) {
         size[i].checked = false;
     }
     for (let i = 0; i < ricesize.length; i++) {
         ricesize[i].checked = false;
+    } 
+    if (document.getElementById('req')) {
+        document.getElementById('req').value = '';
+    }
+    if(document.getElementById('value')) {
+        document.getElementById('value').textContent = count;
     }
 
     window.scrollTo(0, 0);
@@ -139,23 +140,46 @@ function closeshowSuccessAlert() {
     document.getElementById('successAlert').classList.add('hidden');
 }
 
-
-// การ์ดแจ้งเตือนเวลาเลือกไม่ครบ
-function showAlert(message) {
-    document.getElementById('alertMessage').innerText = message;
-    document.getElementById('customAlert').classList.remove('hidden');
-}
-// กดปุ่ม ตกลง เพื่อปิดการ์ด
-function closeAlert() {
-    document.getElementById('customAlert').classList.add('hidden');
-}
-
 // เช็คว่ากดเลือกระดับต่างๆครบมั้ย
 function isChecked(name) {
     return document.querySelector(`input[name="${name}"]:checked`);
 }
-//เช็คว่าเราติ้ก กรอกถูกมั้ย ทุกอันครบมั้ย
+//การ์ดเวลาเลือกครบ
 function checkSelection() {
+    const foodName = document.getElementById('addMenuName').innerText;
+    const foodImg = document.getElementById('addMenuImg').src;
+    
+    // ดึงข้อความจาก Option ที่เลือก
+    const sizeRadio = document.querySelector('input[name="size"]:checked');
+    const sizeOption = sizeRadio ? sizeRadio.nextElementSibling.innerText : 'ธรรมดา';
+    
+    const riceRadio = document.querySelector('input[name="ricesize"]:checked');
+    const riceOption = riceRadio ? riceRadio.nextElementSibling.innerText : '';
+    
+    const reqText = document.getElementById('req').value;
+
+    const unitPrice = Price + extraPrice; 
+    const totalPrice = unitPrice * count;
+
+    const cartItem = {
+        id: Date.now(), 
+        name: foodName,
+        img: foodImg,
+        price: totalPrice,
+        qty: count,
+        options: {
+            size: sizeOption,
+            rice: riceOption,
+            req: reqText
+        }
+    };
+
+    // ดึงของเก่ามา ยัดของใหม่ใส่ แล้วเซฟกลับ
+    let cart = JSON.parse(sessionStorage.getItem('myCart')) || [];
+    cart.push(cartItem);
+    sessionStorage.setItem('myCart', JSON.stringify(cart));
+
+    updateCartBadge();
 
     showSuccessAlert("เพิ่มรายการอาหารลงตะกร้าเรียบร้อยแล้ว"); 
     setTimeout(function() {
@@ -163,6 +187,24 @@ function checkSelection() {
         backHomePage();
     }, 1500);
 }
+
+function updateCartBadge() {
+    let cart = JSON.parse(sessionStorage.getItem('myCart')) || [];
+    let totalItems = 0;
+    cart.forEach(item => totalItems += item.qty);
+    
+    // ค้นหา span ที่แสดงตัวเลขตะกร้า
+    const badges = document.querySelectorAll('.absolute.-top-2.-right-2');
+    badges.forEach(badge => {
+        if(!badge.classList.contains('fa-bag-shopping') && badge.innerText !== undefined) {
+            badge.innerText = totalItems;
+            
+        }
+    });
+}
+
+// สั่งให้อัปเดตเลขตะกร้า
+document.addEventListener("DOMContentLoaded", updateCartBadge);
 
 //กดเอากับพิเศษต(ต้องกำหนดตัวแปรที่มันเก็บราคาที่เรากดพิเศษแล้วค่อยเอาไปคำนวณราคารวม)
 let count = 1;
@@ -206,4 +248,3 @@ function minusMenu() {
         updateDisplay();
     }
 }
-

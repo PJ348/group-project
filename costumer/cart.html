@@ -10,7 +10,7 @@
     <script src="./done.js"></script>
     <script src="./cart.js"></script> 
     <link rel="icon" type="image/png" href="./img/logo-new-2.png">
-    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    <!-- <script src="https://cdn.tailwindcss.com"></script>  -->
 </head>
 
 <body class="bg-[#F3F4F6] min-h-screen">
@@ -40,7 +40,7 @@
                 <div
                     class="flex justify-center items-center bg-[#FF9800] px-5 rounded-full relative max-sm:hidden cursor-pointer">
                     <span id="totalCartList"
-                        class="bg-white border-2 border-[#4CAF50] text-sm font-bold flex justify-center items-center w-7 h-7 rounded-full absolute -top-2 -right-2">1</span>
+                        class="bg-white border-2 border-[#4CAF50] text-sm font-bold flex justify-center items-center w-7 h-7 rounded-full absolute -top-2 -right-2">0</span>
                     <i class="fa-solid fa-bag-shopping text-white text-xl "></i>
                 </div>
             </div>
@@ -69,8 +69,7 @@
 
                         <div id="foodOrder" class="bg-white rounded-3xl shadow-lg ml-2.5 py-2 px-6 flex gap-6"
                             data-price='55'>
-                            <p
-                                class="text-5xl font-extrabold text-[#D9D9D9] flex justify-center items-center p-2 max-sm:text-xl max-[1025px]:text-3xl">
+                            <p class="text-5xl font-extrabold text-[#D9D9D9] flex justify-center items-center p-2 max-sm:text-xl max-[1025px]:text-3xl">
                                 01</p>
                             <img src="./img/food-menu1.jpg" alt="food"
                                 class="w-28 h-28 object-cover rounded-2xl max-[985px]:hidden">
@@ -116,7 +115,7 @@
                 <button id="backHomeIcon"
                     class="hidden bg-orange-400 w-fit mx-auto rounded-full flex justify-center items-center pr-4 py-2 space-x-2 shadow-lg hover:bg-orange-700 transition"
                     onclick="goHomePage()">
-                    <i class="fa-solid fa-face-smile text-white text-3xl pl-2"></i>
+                    <i class="fa-solid fa-face-smile text-white text-4xl pl-2"></i>
                     <p class="text-white text-xl font-semibold p-1">กลับไปหน้าเมนูอาหาร</p>
                 </button>
 
@@ -155,14 +154,14 @@
                             <div id="eatHere"
                                 class="flex-1 flex flex-col items-center justify-center gap-2 py-8 px-4 border-2 rounded-3xl cursor-pointer"
                                 onclick="toggleEatMode('eat-here')">
-                                <i class="fa-solid fa-couch text-6xl "></i>
+                                <i class="fa-solid fa-couch text-5xl "></i>
                                 <p class="text-md text-black font-semibold">ทานที่ร้าน</p>
                             </div>
 
                             <div id="backHome"
                                 class="flex-1 flex flex-col items-center justify-center gap-2 py-8 px-4 border-2 rounded-3xl hover:bg-gray-50 cursor-pointer"
                                 onclick="toggleEatMode('back-home')">
-                                <i class="fa-solid fa-bag-shopping text-6xl"></i>
+                                <i class="fa-solid fa-bag-shopping text-5xl"></i>
                                 <p class="text-md text-black font-semibold">สั่งกลับบ้าน</p>
                             </div>
                         </div>
