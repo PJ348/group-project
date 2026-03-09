@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>รายการออเดอร์</title>
+    <title>ตั้งค่าเมนู</title>
     <link href="/owner/src/output.css" rel="stylesheet">
     <link rel="icon" href="/owner/img/favicon.ico">
     <script src="https://kit.fontawesome.com/b118461cf7.js" crossorigin="anonymous"></script>
@@ -59,7 +59,7 @@
     <!--หัวเรื่อง-->
     <header class="flex justify-between mt-6 items-center mb-5">
         <h1 class="text-[40px] font-semibold ml-15">จัดการเมนู</h1>
-        <button id="search-btn" 
+        <button id="search-btn" onclick="window.location.href='/owner/addmenu.html'"
             class="bg-orang-menu w-[200px] h-[90px] rounded-3xl y-3 text-[24px] text-white font-semibold mr-20 hover:scale-95 duration-200 cursor-pointer items-center">
             <div class="flex items-center justify-center">
                 <i class="fa-solid fa-plus text-4xl"></i>
@@ -141,7 +141,7 @@
             </div>
             <div class="flex flex-col">
                 <p class="text-3xl font-semibold truncate">ข้าวหมูสับคั่วพริกเกลือ</p>
-                <p class="text-[24px] font-medium text-orang-menu">55 <span class="text-black">บาท</span></p>
+                <p class="text-[24px] font-medium text-orang-menu">45 <span class="text-black">บาท</span></p>
             </div>
             <div class="flex justify-center">
                 <div class="bg-green-logo/30 text-green-logo text-2xl font-semibold rounded-3xl py-3 px-4 text-center w-full">เปิดรับออเดอร์</div>
@@ -219,7 +219,7 @@
             </div>
             <div class="flex flex-col">
                 <p class="text-3xl font-semibold truncate">ข้าวเจียวหมูสับ/กุ้ง</p>
-                <p class="text-[24px] font-medium text-orang-menu">55 <span class="text-black">บาท</span></p>
+                <p class="text-[24px] font-medium text-orang-menu">40 <span class="text-black">บาท</span></p>
             </div>
             <div class="flex justify-center">
                 <div class="bg-green-logo/30 text-green-logo text-2xl font-semibold rounded-3xl py-3 px-4 text-center w-full">เปิดรับออเดอร์</div>
@@ -245,7 +245,7 @@
             </div>
             <div class="flex flex-col">
                 <p class="text-3xl font-semibold truncate">ข้าวกะเพราหมูสับ/หมูชิ้น</p>
-                <p class="text-[24px] font-medium text-orang-menu">55 <span class="text-black">บาท</span></p>
+                <p class="text-[24px] font-medium text-orang-menu">40 <span class="text-black">บาท</span></p>
             </div>
             <div class="flex justify-center">
                 <div class="bg-green-logo/30 text-green-logo text-2xl font-semibold rounded-3xl py-3 px-4 text-center w-full">เปิดรับออเดอร์</div>
@@ -313,7 +313,7 @@
                 </button>
                 
 
-                <!--สรุปยอดขาย-->
+                <!--ตั้งค่าเมนู-->
                 <button id="btn-summary"
                     class="flex w-[300px] h-[130px] bg-green-logo rounded-4xl content-center p-3 duration-300 hover:scale-90">
                     <div class="bg-white/30 size-[110px] rounded-4xl content-center text-center">
@@ -325,8 +325,8 @@
                     </div>
                 </button>
 
-                <!--สรุปยอดขาย-->
-                <button
+                <!--ตั้งค่าเ-->
+                <button onclick="window.location.href = '/owner/datetimesetting.html'"
                     class="bg-white w-auto h-auto rounded-4xl p-4 content-center hover:shadow-xl text-center duration-300 hover:scale-90">
                     <i class="fa-solid fa-calendar text-[45px] mb-3"></i>
                     <p class="text-3xl font-medium">วันที่ และ เวลา</p>
@@ -405,6 +405,255 @@
                         card.classList.remove('opacity-0');
                         card.classList.add('opacity-100');
                     }, 500 + (index * 150)); // ใบแรกมาตอน 100ms, ใบต่อไปบวกเพิ่มทีละ 150ms
+                });
+            }
+        });
+    </script>
+
+    <script>
+        // รอให้โหลดโครงสร้าง HTML เสร็จก่อน
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            const cards = document.querySelectorAll('#card_setting > div');
+            
+            if (cards.length > 0) {
+                cards.forEach((card, index) => {
+                    // --- 1. แอนิเมชัน Fade-in ตอนเปิดหน้า (ของเดิม) ---
+                    card.classList.add('opacity-0', 'transition-opacity', 'duration-700', 'ease-in-out');
+                    setTimeout(() => {
+                        card.classList.remove('opacity-0');
+                        card.classList.add('opacity-100');
+                    }, 500 + (index * 150));
+
+                    // ==========================================
+                    // 🌟 2. ระบบเปลี่ยนสถานะ (เปิด/ปิดรับออเดอร์)
+                    // ==========================================
+                    // อ้างอิง Element ตามลำดับคอลัมน์ใน Grid (ชัวร์และแม่นยำที่สุด)
+                    const statusBadge = card.children[3].querySelector('div'); // ป้ายสถานะ
+                    const statusBtn = card.children[4]; // ปุ่มเปลี่ยนสถานะ
+                    
+                    if (statusBtn && statusBadge) {
+                        let isOpened = true; // ตั้งค่าเริ่มต้นให้เปิดรับออเดอร์
+                        
+                        statusBtn.addEventListener('click', () => {
+                            isOpened = !isOpened; // สลับสถานะ
+                            
+                            if (!isOpened) {
+                                // ---- กรณี: ปิดรับออเดอร์ (สีแดง) ----
+                                statusBadge.innerText = 'ปิดรับออเดอร์';
+                                statusBadge.classList.replace('bg-green-logo/30', 'bg-red-500/30');
+                                statusBadge.classList.replace('text-green-logo', 'text-red-500');
+                                
+                                statusBtn.classList.replace('bg-green-logo', 'bg-red-500');
+                                statusBtn.innerHTML = '<i class="fa-solid fa-circle-xmark"></i> เปลี่ยนสถานะ';
+                            } else {
+                                // ---- กรณี: เปิดรับออเดอร์ (สีเขียว) ----
+                                statusBadge.innerText = 'เปิดรับออเดอร์';
+                                statusBadge.classList.replace('bg-red-500/30', 'bg-green-logo/30');
+                                statusBadge.classList.replace('text-red-500', 'text-green-logo');
+                                
+                                statusBtn.classList.replace('bg-red-500', 'bg-green-logo');
+                                statusBtn.innerHTML = '<i class="fa-solid fa-circle-check"></i> เปลี่ยนสถานะ';
+                            }
+                        });
+                    }
+
+                    // ==========================================
+                    // 🌟 3. ระบบซ่อนเมนู (พื้นหลังดำบังรูปภาพ)
+                    // ==========================================
+                    const hideBtn = card.children[5]; // ปุ่มซ่อนเมนู
+                    const imgEl = card.children[1].querySelector('img'); // รูปภาพอาหาร
+                    
+                    if (hideBtn && imgEl) {
+                        // ใช้ JS สร้างกล่องมาครอบรูปภาพเพื่อใส่เอฟเฟกต์ (ไม่ต้องเหนื่อยแก้ HTML)
+                        const wrapper = document.createElement('div');
+                        wrapper.className = 'relative size-[170px] rounded-3xl overflow-hidden';
+                        
+                        // ย้ายรูปภาพเข้าไปใน Wrapper
+                        imgEl.parentNode.insertBefore(wrapper, imgEl);
+                        wrapper.appendChild(imgEl);
+                        
+                        // สร้างแผ่นสีดำ (Overlay) และไอคอนปิดตา วางซ้อนทับไว้ (ซ่อนไว้ก่อนด้วย opacity-0)
+                        const overlay = document.createElement('div');
+                        overlay.className = 'absolute inset-0 bg-black/10 flex items-center justify-center opacity-0 transition-opacity duration-300 pointer-events-none';
+                        overlay.innerHTML = '<i class="fa-solid fa-eye-slash text-white text-[60px]"></i>';
+                        wrapper.appendChild(overlay);
+
+                        let isHidden = false; // ตั้งค่าเริ่มต้นให้เมนูไม่ถูกซ่อน
+                        
+                        hideBtn.addEventListener('click', () => {
+                            isHidden = !isHidden; // สลับสถานะซ่อน
+                            
+                            if (isHidden) {
+                                // ---- กรณี: กดซ่อนเมนู ----
+                                overlay.classList.remove('opacity-0'); // โชว์แผ่นสีดำ
+                                hideBtn.innerHTML = '<i class="fa-solid fa-eye"></i> แสดงเมนู'; // เปลี่ยนข้อความปุ่ม
+                                hideBtn.classList.replace('bg-black', 'bg-gray-500'); // เปลี่ยนสีปุ่มให้ดูซอฟต์ลง
+                            } else {
+                                // ---- กรณี: ยกเลิกซ่อนเมนู ----
+                                overlay.classList.add('opacity-0'); // ซ่อนแผ่นสีดำ
+                                hideBtn.innerHTML = '<i class="fa-solid fa-eye-slash"></i> ซ่อนเมนู';
+                                hideBtn.classList.replace('bg-gray-500', 'bg-black'); // กลับไปสีดำเข้มเหมือนเดิม
+                            }
+                        });
+                    }
+                });
+            }
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const cardContainer = document.getElementById('card_setting');
+            
+            // ==========================================
+            // 🌟 1. ดึงข้อมูลเมนูใหม่จาก localStorage มาสร้างการ์ด
+            // ==========================================
+            const savedMenus = JSON.parse(localStorage.getItem('myRestaurantMenus')) || [];
+            let currentCount = document.querySelectorAll('#card_setting > div').length;
+
+            savedMenus.forEach(menu => {
+                currentCount++;
+                const menuNumber = String(currentCount).padStart(2, '0');
+
+                // สร้างโครงสร้าง HTML ให้เหมือนการ์ดเดิมเป๊ะๆ
+                const cardHTML = `
+                    <div class="grid grid-cols-[80px_180px_minmax(250px,1fr)_220px_240px_240px_240px] bg-white w-[1803px] h-[200px] rounded-3xl shadow-lg border-2 border-gray-300 items-center px-10 gap-6 shrink-0">
+                        <h1 class="text-[40px] font-semibold text-center">${menuNumber}</h1>
+                        <div class="flex justify-center">
+                            <img src="${menu.image}" class="size-[170px] rounded-3xl object-cover">
+                        </div>
+                        <div class="flex flex-col">
+                            <p class="text-3xl font-semibold truncate">${menu.name}</p>
+                            <p class="text-[24px] font-medium text-orang-menu">${menu.price} <span class="text-black">บาท</span></p>
+                        </div>
+                        <div class="flex justify-center">
+                            <div class="bg-green-logo/30 text-green-logo text-2xl font-semibold rounded-3xl py-3 px-4 text-center w-full">เปิดรับออเดอร์</div>
+                        </div>
+                        <button class="flex bg-green-logo w-full h-[60px] rounded-3xl text-2xl font-semibold items-center justify-center text-white gap-3 shadow-lg hover:scale-95 duration-200 cursor-pointer">
+                            <i class="fa-solid fa-circle-check"></i>
+                            เปลี่ยนสถานะ
+                        </button>
+                        <button class="flex bg-black w-full h-[60px] rounded-3xl text-2xl font-semibold items-center justify-center text-white gap-3 shadow-lg hover:scale-95 duration-200 cursor-pointer">
+                            <i class="fa-solid fa-eye-slash"></i>
+                            ซ่อนเมนู
+                        </button>
+                        <button data-id="${menu.id}" class="flex w-full h-[60px] rounded-3xl text-2xl border-4 border-orange-400 font-semibold items-center justify-center text-orang-menu gap-3 shadow-lg hover:scale-95 duration-200 cursor-pointer">
+                            <i class="fa-solid fa-gear"></i>
+                            จัดการ
+                        </button>
+                    </div>
+                `;
+                // แทรกการ์ดใหม่เข้าไปต่อท้าย
+                cardContainer.insertAdjacentHTML('beforeend', cardHTML);
+            });
+
+            // ==========================================
+            // 🌟 2. ดึงการ์ด "ทั้งหมด" (เก่า+ใหม่) มาใส่ฟังก์ชันการทำงาน
+            // ==========================================
+            const allCards = document.querySelectorAll('#card_setting > div');
+
+            // ฟังก์ชันอัปเดตหมายเลขลำดับ (01, 02, 03...)
+            function updateCardNumbers() {
+                const currentCards = document.querySelectorAll('#card_setting > div');
+                currentCards.forEach((c, i) => {
+                    const numberText = c.querySelector('h1');
+                    if (numberText) numberText.innerText = String(i + 1).padStart(2, '0');
+                });
+            }
+
+            if (allCards.length > 0) {
+                allCards.forEach((card, index) => {
+                    
+                    // --- แอนิเมชัน Fade-in โหลดหน้า ---
+                    card.classList.add('opacity-0', 'transition-all', 'duration-500', 'ease-in-out');
+                    setTimeout(() => {
+                        card.classList.remove('opacity-0');
+                        card.classList.add('opacity-100');
+                    }, 300 + (index * 100));
+
+                    // --- ฟังก์ชันเปลี่ยนสถานะ (เปิด/ปิด) ---
+                    const statusBadge = card.children[3].querySelector('div'); 
+                    const statusBtn = card.querySelectorAll('button')[0]; 
+                    
+                    if (statusBtn && statusBadge) {
+                        let isOpened = true; 
+                        statusBtn.addEventListener('click', () => {
+                            isOpened = !isOpened; 
+                            if (!isOpened) {
+                                statusBadge.innerText = 'ปิดรับออเดอร์';
+                                statusBadge.classList.replace('bg-green-logo/30', 'bg-red-500/30');
+                                statusBadge.classList.replace('text-green-logo', 'text-red-500');
+                                statusBtn.classList.replace('bg-green-logo', 'bg-red-500');
+                                statusBtn.innerHTML = '<i class="fa-solid fa-circle-xmark"></i> เปลี่ยนสถานะ';
+                            } else {
+                                statusBadge.innerText = 'เปิดรับออเดอร์';
+                                statusBadge.classList.replace('bg-red-500/30', 'bg-green-logo/30');
+                                statusBadge.classList.replace('text-red-500', 'text-green-logo');
+                                statusBtn.classList.replace('bg-red-500', 'bg-green-logo');
+                                statusBtn.innerHTML = '<i class="fa-solid fa-circle-check"></i> เปลี่ยนสถานะ';
+                            }
+                        });
+                    }
+
+                    // --- ฟังก์ชันซ่อนเมนู (บังรูปภาพ) ---
+                    const hideBtn = card.querySelectorAll('button')[1]; 
+                    const imgEl = card.children[1].querySelector('img'); 
+                    
+                    if (hideBtn && imgEl) {
+                        const wrapper = document.createElement('div');
+                        wrapper.className = 'relative size-[170px] rounded-3xl overflow-hidden';
+                        
+                        imgEl.parentNode.insertBefore(wrapper, imgEl);
+                        wrapper.appendChild(imgEl);
+                        
+                        const overlay = document.createElement('div');
+                        overlay.className = 'absolute inset-0 bg-black/70 flex items-center justify-center opacity-0 transition-opacity duration-300 pointer-events-none';
+                        overlay.innerHTML = '<i class="fa-solid fa-eye-slash text-white text-[60px]"></i>';
+                        wrapper.appendChild(overlay);
+
+                        let isHidden = false; 
+                        hideBtn.addEventListener('click', () => {
+                            isHidden = !isHidden; 
+                            if (isHidden) {
+                                overlay.classList.remove('opacity-0'); 
+                                hideBtn.innerHTML = '<i class="fa-solid fa-eye"></i> แสดงเมนู'; 
+                                hideBtn.classList.replace('bg-black', 'bg-gray-500'); 
+                            } else {
+                                overlay.classList.add('opacity-0'); 
+                                hideBtn.innerHTML = '<i class="fa-solid fa-eye-slash"></i> ซ่อนเมนู';
+                                hideBtn.classList.replace('bg-gray-500', 'bg-black'); 
+                            }
+                        });
+                    }
+
+                    // --- ฟังก์ชันลบเมนู ---
+                    const manageBtn = card.querySelectorAll('button')[2];
+                    
+                    if (manageBtn) {
+                        manageBtn.addEventListener('click', () => {
+                            const isConfirmed = confirm('⚠️ คุณแน่ใจหรือไม่ว่าต้องการ "ลบ" เมนูนี้ออกจากระบบ?');
+                            if (isConfirmed) {
+                                card.style.transition = 'all 0.3s ease-in-out';
+                                card.style.opacity = '0';
+                                card.style.transform = 'scale(0.95)';
+                                
+                                setTimeout(() => {
+                                    // 1. ตรวจสอบว่าเป็นการ์ดที่เพิ่มมาใหม่หรือไม่ ถ้าใช่ ให้ลบออกจาก localStorage ด้วย
+                                    const menuId = manageBtn.getAttribute('data-id');
+                                    if (menuId) {
+                                        let saved = JSON.parse(localStorage.getItem('myRestaurantMenus')) || [];
+                                        saved = saved.filter(m => m.id != menuId); // คัดข้อมูลตัวที่ถูกลบออก
+                                        localStorage.setItem('myRestaurantMenus', JSON.stringify(saved));
+                                    }
+
+                                    // 2. ลบออกจากหน้าเว็บ และจัดเลขลำดับใหม่
+                                    card.remove(); 
+                                    updateCardNumbers(); 
+                                }, 300);
+                            }
+                        });
+                    }
                 });
             }
         });
