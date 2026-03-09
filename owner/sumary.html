@@ -5,12 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>สรุปยอดขาย</title>
-    <link href="/owner/src/output.css" rel="stylesheet">
-    <link rel="icon" href="/owner/img/favicon.ico">
+    <link href="./src/output.css" rel="stylesheet">
+    <link rel="icon" href="./img/logo-rbg.png">
     <script src="https://kit.fontawesome.com/b118461cf7.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <script src="./canlendar.js"></script>
-    <script src="./closeorder.js"></script>
     <style>
         .no-scrollbar::-webkit-scrollbar {
             display: none;
@@ -30,7 +28,7 @@
     <!--Navbar-->
     <nav class="relative z-[110] bg-white flex flex-row justify-between shadow-lg items-center py-3">
         <div class="flex items-center gap-7">
-            <img src="/owner/img/logo-rbg.png" rel="img-logo"
+            <img src="./img/logo-rbg.png" rel="img-logo"
                 class="size-25 inset-shadow-2xs shadow-lg ml-15 rounded-full">
             <div class="flex-col font-medium text-green-logo">
                 <p class="text-[40px]">ร้านสดชื่น</p>
@@ -259,7 +257,7 @@
                         class="bg-green-logo rounded-full size-[36px] text-white font-medium items-center text-center text-2xl">
                         1
                     </div>
-                    <img src="/owner/img/food-menu4.jpg" alt="กะเพรา" class="size-[64px] rounded-3xl">
+                    <img src="./img/food-menu4.jpg" alt="กะเพรา" class="size-[64px] rounded-3xl">
                     <p class="w-[130px] h-[32px] text-2xl font-semibold">ข้าวกะเพรา</p>
                     <p class="w-[100px] h-[32px] text-2xl font-semibold">40 บาท</p>
                 </div>
@@ -268,7 +266,7 @@
                         class="bg-orang-menu rounded-full size-[36px] text-white font-medium items-center text-center text-2xl">
                         2
                     </div>
-                    <img src="/owner/img/food-menu7.jpg" alt="กะเพรา" class="size-[64px] rounded-3xl">
+                    <img src="./img/food-menu7.jpg" alt="กะเพรา" class="size-[64px] rounded-3xl">
                     <p class="w-[130px] h-[32px] text-2xl font-semibold">ข้าวทะเล</p>
                     <p class="w-[100px] h-[32px] text-2xl font-semibold">55 บาท</p>
                 </div>
@@ -277,7 +275,7 @@
                         class="bg-green-logo rounded-full size-[36px] text-white font-medium items-center text-center text-2xl">
                         3
                     </div>
-                    <img src="/owner/img/food-menu1.jpg" alt="กะเพรา" class="size-[64px] rounded-3xl">
+                    <img src="./img/food-menu1.jpg" alt="กะเพรา" class="size-[64px] rounded-3xl">
                     <p class="w-[130px] h-[32px] text-2xl font-semibold">ข้าวไข่ข้น</p>
                     <p class="w-[100px] h-[32px] text-2xl font-semibold">55 บาท</p>
                 </div>
@@ -289,10 +287,10 @@
     <footer class="flex justify-center my-5">
 
         <div id="btn-home"
-            class="bg-white border-gray-100 border-2 w-[1010px] h-[150px] rounded-4xl shadow-2xl content-center">
+            class="bg-white border-gray-100 border-2 w-auto h-[150px] rounded-4xl shadow-2xl content-center px-10">
             <div class="flex gap-10">
                 <!--Home page-->
-                <button onclick="window.location.href = 'index.html'"
+                <button onclick="window.location.href = './index.html'"
                     class="bg-white w-auto h-auto rounded-4xl p-4 content-center hover:shadow-xl text-center duration-300 hover:scale-90 ml-5">
                     <i class="fa-solid fa-house text-5xl"></i>
                     <p class="text-3xl font-medium">หน้าจอหลัก</p>
@@ -312,17 +310,10 @@
                 </button>
 
                 <!--ตั้งค่าเมนู-->
-                <button onclick="window.location.href = '/owner/menusetting.html'"
+                <button onclick="window.location.href = './menusetting.html'"
                     class="bg-white w-auto h-auto rounded-4xl p-4 content-center hover:shadow-xl text-center duration-300 hover:scale-90">
                     <i class="fa-solid fa-sliders text-[45px] mb-3"></i>
                     <p class="text-3xl font-medium"> ตั้งค่าเมนู </p>
-                </button>
-
-                <!--ตั้งเวลา-->
-                <button onclick="window.location.href = '/owner/datetimesetting.html'"
-                    class="bg-white w-auto h-auto rounded-4xl p-4 content-center hover:shadow-xl text-center duration-300 hover:scale-90">
-                    <i class="fa-solid fa-calendar text-[45px] mb-3"></i>
-                    <p class="text-3xl font-medium">วันที่ และ เวลา</p>
                 </button>
 
             </div>
@@ -366,7 +357,7 @@
                 // ปิด Modal ก่อน (เพื่อความเนียนก่อนภาพตัด)
                 cancelModal.classList.add('hidden');
 
-                window.location.href = '/owner/webclosedorder.html';
+                window.location.href = './webclosedorder.html';
             });
 
             // --- 2. กรณีที่กดยกเลิก (แค่ปิด Modal ไม่ต้องทำอะไรเพิ่ม) ---

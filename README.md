@@ -71,7 +71,7 @@
 
 ---
 
-## 📖 User Manual
+##  User Manual
 คู่มือการใช้งานระบบสำหรับผู้ใช้และผู้ดูแลร้าน สามารถดูรายละเอียดเพิ่มเติมได้ที่ลิงก์ด้านล่าง:
  **[คู่มือการใช้งานระบบสั่งอาหารภายในร้านค้า (Google Docs)](https://docs.google.com/document/d/1uXjXzO6uRfVuC5z1rIONnYdl0w-9BDt8c-91-BQHkrs/edit?usp=sharing)**
 

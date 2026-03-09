@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>รายการออเดอร์</title>
-    <link href="/owner/src/output.css" rel="stylesheet">
-    <link rel="icon" href="/owner/img/favicon.ico">
+    <link href="./src/output.css" rel="stylesheet">
+    <link rel="icon" href="./img/favicon.ico">
     <script src="https://kit.fontawesome.com/b118461cf7.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
@@ -16,7 +16,7 @@
     <!--Navbar-->
     <nav class="relative z-[110] bg-white flex flex-row justify-between shadow-lg items-center py-3">
         <div class="flex items-center gap-7">
-            <img src="/owner/img/logo-rbg.png" rel="img-logo"
+            <img src="./img/logo-rbg.png" rel="img-logo"
                 class="size-25 inset-shadow-2xs shadow-lg ml-15 rounded-full">
             <div class="flex-col font-medium text-green-logo">
                 <p class="text-[40px]">ร้านสดชื่น</p>
@@ -36,7 +36,7 @@
                 </div>
             </div>
 
-            <button id="closd-order" onclick="window.location.href = '/owner/index.html';"
+            <button id="closd-order" onclick="window.location.href = './index.html';"
                 class=" flex items-center-safe border-5 bg-green-logo text-white rounded-full py-4 px-8 hover:cursor-pointer duration-300 hover:scale-95 transition-colors">
                 <i id="toggle-icon" class="fa-solid fa-play text-[35px]"></i>
                 <p id="toggle-text" class="font-bold text-[32px]"> เปิดรับออเดอร์</p>
@@ -59,7 +59,7 @@
 
     <footer class="flex justify-center my-5">
 
-        <div class="bg-white w-[1010px] h-[150px] rounded-4xl shadow-2xl content-center">
+        <div class="bg-white w-auto h-[150px] rounded-4xl shadow-2xl content-center pr-10">
             <div class="flex gap-10">
                 <!--Home page-->
                 <button
@@ -74,7 +74,7 @@
                 </button>
 
                 <!--สรุปยอดขาย-->
-                <button onclick="window.location.href = '/owner/sumary.html'"
+                <button onclick="window.location.href = './sumary.html'"
                     class="bg-white w-auto h-auto rounded-4xl p-4 content-center hover:shadow-xl text-center duration-300 hover:scale-90">
                     <i class="fa-solid fa-clipboard-list text-[45px] mb-3"></i>
                     <p class="text-3xl font-medium">สรุปยอดขาย</p>
@@ -87,12 +87,6 @@
                     <p class="text-3xl font-medium"> ตั้งค่าเมนู </p>
                 </button>
 
-                <!--สรุปยอดขาย-->
-                <button onclick="window.location.href = '/owner/datetimesetting.html'"
-                    class="bg-white w-auto h-auto rounded-4xl p-4 content-center hover:shadow-xl text-center duration-300 hover:scale-90">
-                    <i class="fa-solid fa-calendar text-[45px] mb-3"></i>
-                    <p class="text-3xl font-medium">วันที่ และ เวลา</p>
-                </button>
 
             </div>
         </div>

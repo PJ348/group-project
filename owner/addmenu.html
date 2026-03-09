@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>รายการออเดอร์</title>
-    <link href="/owner/src/output.css" rel="stylesheet">
-    <link rel="icon" href="/owner/img/favicon.ico">
+    <link href="./src/output.css" rel="stylesheet">
+    <link rel="icon" href="./img/favicon.ico">
     <script src="https://kit.fontawesome.com/b118461cf7.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
@@ -16,7 +16,7 @@
     <!--Navbar-->
     <nav class="relative z-[110] bg-white flex flex-row justify-between shadow-lg items-center py-3">
         <div class="flex items-center gap-7">
-            <img src="/owner/img/logo-rbg.png" rel="img-logo"
+            <img src="./img/logo-rbg.png" rel="img-logo"
                 class="size-25 inset-shadow-2xs shadow-lg ml-15 rounded-full">
             <div class="flex-col font-medium text-green-logo">
                 <p class="text-[40px]">ร้านสดชื่น</p>
@@ -98,7 +98,7 @@
 
     <footer class="flex ml-15 gap-10">
         <!--ปุ่ม HOME-->
-        <button onclick="window.location.href = '/owner/menusetting.html'"
+        <button onclick="window.location.href = './menusetting.html'"
             class="bg-white rounded-4xl w-[330px] h-[130px] duration-300 hover:scale-90 shadow-lg cursor-pointer">
             <div class="flex content-center">
                 <div class="bg-black/10 size-[110px] rounded-4xl ml-2 content-center text-center">
@@ -139,7 +139,7 @@
                 </button>
             </div>
         </div>
-        <script src="/owner/closeorder.js"></script>
+        <script src="./closeorder.js"></script>
         <script>
         document.addEventListener('DOMContentLoaded', () => {
             const uploadBox = document.getElementById('image-upload-box');
@@ -228,7 +228,7 @@
                 alert(`✅ เพิ่มเมนู "${nameValue}" ราคา ${priceValue} บาท เสร็จสิ้น!`);
                 
                 // พาไปหน้า menusetting.html
-                window.location.href = '/owner/menusetting.html';
+                window.location.href = './menusetting.html';
             });
 
             // 4. เมื่อกดปุ่ม "ล้างข้อมูล"

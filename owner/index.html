@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>รายการออเดอร์</title>
     <link href="./src/output.css" rel="stylesheet">
-    <link rel="icon" href="/owner/img/favicon.ico">
+    <link rel="icon" href="./img/favicon.ico">
     <script src="https://kit.fontawesome.com/b118461cf7.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
@@ -74,7 +74,7 @@
         <div id="Card2" class="bg-orang-menu w-[680px] h-[563px] rounded-4xl justify-items-end drop-shadow-lg">
             <div class="bg-white min-w-[669px] h-[563px] rounded-4xl py-15 px-15 ml-5">
                 <div class="text-[64px] font-semibold">ชื่อ : MOMO</div>
-                <div class="text-[48px] font-normal"><a class="font-semibold">เบอร์ :</a> 000-000-0000</div>
+                <div class="text-[48px] font-normal"><a class="font-semibold">เบอร์ :</a> 012-345-6789</div>
                 <div class="flex justify-between">
                     <div class="bg-orang-menu/20 text-orang-menu text-3xl font-semibold rounded-full px-10 py-2">
                         กลับบ้าน
@@ -109,7 +109,7 @@
         <div id="Card4" class="bg-orang-menu w-[680px] h-[563px] rounded-4xl justify-items-end drop-shadow-lg">
             <div class="bg-white min-w-[669px] h-[563px] rounded-4xl py-15 px-15 ml-5">
                 <div class="text-[64px] font-semibold">ชื่อ : ฟาน่า</div>
-                <div class="text-[48px] font-normal"><a class="font-semibold">เบอร์ :</a> 000-000-0000</div>
+                <div class="text-[48px] font-normal"><a class="font-semibold">เบอร์ :</a> 012-345-6789</div>
                 <div class="flex justify-between">
                     <div class="bg-orang-menu/30 text-orang-menu text-3xl font-semibold rounded-full px-10 py-2">
                         กลับบ้าน
@@ -136,7 +136,7 @@
             }
         </style>
 
-        <script src="./Crad.js"></script>
+        <script src="./crad.js"></script>
     </main>
     <!--Empty-state-->
     <div id="empty-state" class="hidden flex-col items-center justify-center w-full h-[500px] mb-30">
@@ -147,7 +147,7 @@
 
     <footer class="flex justify-center my-5">
 
-        <div class="bg-white w-[1010px] h-[150px] rounded-4xl shadow-2xl content-center">
+        <div class="bg-white w-auto h-[150px] rounded-4xl shadow-2xl content-center pr-10">
             <div class="flex gap-10">
                 <!--Home page-->
                 <button
@@ -162,24 +162,17 @@
                 </button>
 
                 <!--สรุปยอดขาย-->
-                <button onclick="window.location.href = 'sumary.html'"
+                <button onclick="window.location.href = './sumary.html'"
                     class="bg-white w-auto h-auto rounded-4xl p-4 content-center hover:shadow-xl text-center duration-300 hover:scale-90">
                     <i class="fa-solid fa-clipboard-list text-[45px] mb-3"></i>
                     <p class="text-3xl font-medium">สรุปยอดขาย</p>
                 </button>
 
                 <!--ตั้งค่าเมนู-->
-                <button onclick="window.location.href = '/owner/menusetting.html'"
+                <button onclick="window.location.href = './menusetting.html'"
                     class="bg-white w-auto h-auto rounded-4xl p-4 content-center hover:shadow-xl text-center duration-300 hover:scale-90">
                     <i class="fa-solid fa-sliders text-[45px] mb-3"></i>
                     <p class="text-3xl font-medium"> ตั้งค่าเมนู </p>
-                </button>
-
-                <!--วันที่ และ เวลา-->
-                <button onclick="window.location.href = '/owner/datetimesetting.html'"
-                    class="bg-white w-auto h-auto rounded-4xl p-4 content-center hover:shadow-xl text-center duration-300 hover:scale-90">
-                    <i class="fa-solid fa-calendar text-[45px] mb-3"></i>
-                    <p class="text-3xl font-medium">วันที่ และ เวลา</p>
                 </button>
 
             </div>
