@@ -11,7 +11,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 
-<body class="bg-bg max-w-[1920px] min-h-[1080px] my-auto mx-auto font-kanit overflow-x-hidden">
+<body class="bg-bg max-w-[3000px] min-h-[1080px] my-auto mx-auto font-kanit overflow-x-hidden">
 
     <!--Navbar-->
     <nav class="relative z-[110] bg-white flex flex-row justify-between shadow-lg items-center py-3">
@@ -45,7 +45,7 @@
     </nav>
 
     <!--หัวเรื่อง-->
-    <header class="flex justify-between ml-20 mt-8 mb-4">
+    <header class="flex justify-between ml-20 mt-8 mb-5">
         <p class="text-[40px] font-semibold items-center">ตั้งค่าเมนู</p>
         <div class="flex mr-20 gap-10">
             <button id="save-btn"
@@ -64,7 +64,7 @@
     </header>
 
     <!--Crad menu-->
-    <main class="flex justify-center w-full px-15 mb-5">
+    <main class="flex justify-center items-center mt-30 w-full px-15 mb-5">
         <div class="bg-white w-[1400px] h-auto rounded-[40px] shadow-xl flex p-16 gap-16 border-2 border-gray-100 items-center">
             
             <div class="w-1/2 h-[500px] flex flex-col items-center justify-center border-4 border-dashed border-gray-300 rounded-[40px] bg-gray-50 cursor-pointer hover:bg-gray-100 hover:border-gray-400 transition-all duration-300 relative overflow-hidden group" id="image-upload-box">
@@ -96,7 +96,7 @@
         </div>
     </main>
 
-    <footer class="flex ml-15 gap-10">
+    <footer class="fixed bottom-0 left-0 right-0 flex ml-15 mb-10 pb-6 z-50 ">
         <!--ปุ่ม HOME-->
         <button onclick="window.location.href = './menusetting.html'"
             class="bg-white rounded-4xl w-[330px] h-[130px] duration-300 hover:scale-90 shadow-lg cursor-pointer">
