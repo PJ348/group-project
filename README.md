@@ -91,8 +91,8 @@
 
 ##  Demo
 สามารถทดลองใช้งานเว็บไซต์จริงได้ที่นี่:
- **[ลิงก์สำหรับเข้าใช้งานเว็บไซต์ ฝั่งลูกค้า (Customers)]([https://your-actual-demo-link.onrender.com](https://group-project-kzfu.vercel.app/))**
- **[ลิงก์สำหรับเข้าใช้งานเว็บไซต์ ผู้ดูแลระบบหรือเจ้าของร้าน (Administrator / Owner)]([https://your-actual-demo-link.onrender.com](https://group-project-6q9y.vercel.app/))**
+ **[ลิงก์สำหรับเข้าใช้งานเว็บไซต์ ฝั่งลูกค้า (Customers)][https://group-project-kzfu.vercel.app/](https://group-project-kzfu.vercel.app/)**
+ **[ลิงก์สำหรับเข้าใช้งานเว็บไซต์ ผู้ดูแลระบบหรือเจ้าของร้าน (Administrator / Owner)][https://group-project-6q9y.vercel.app/](https://group-project-6q9y.vercel.app/)**
 
 ---
 
